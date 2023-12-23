@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eventet</title>
+    <link rel="icon" href="tl.png" type="image/x-icon">
+    <link rel="stylesheet" href="apps.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+  
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 5px; /* Adjusted padding */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 200px; /* Adjusted width */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 5px; /* Adjusted margin */
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px; /* Adjusted font size */
+        }
+
+        nav li:hover {
+            background-color: rgb(55, 55, 195);
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        footer {
+            background-color: black;
+            color: #fff;
+            padding: 5px; /* Adjusted padding */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer hr {
+            border-top: 1px solid white; /* Added horizontal line */
+            margin: 10px 0; /* Adjusted margin */
+        }
+
+        footer a {
+            display: inline-block; /* Added display property */
+            margin: 5px; /* Added margin */
+            border: 1px solid white; /* Added border */
+            border-radius: 5px; /* Added border-radius */
+            transition: background-color 0.3s ease-in-out; /* Added transition */
+        }
+
+        footer a img {
+            width: 37px;
+            height: 37px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+   
+        footer a:hover img {
+            transform: scale(1.2);
+           
+        }
+
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="ObvP.png" alt="Observatory of Prishtina">
+       
+        <nav class="navbar navbar-expand-lg">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#home">Rezervimi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Eventet</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Fakte</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Kontakti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="image-container">
+        <div class="text-overlay">
+          <h1><b>Evente ku yjet janë protagonistë!</b></h1></div>
+          <div class="image-frame">
+        <img src="obs4.jpg" alt="Sky Image">
+      </div> </div>
+      
+      <br><br><br>
+      
+      <div class="container">
+        <h2>Programet dhe Ngjarjet</h2></div><br>
+        <div class="container2">
+          <div class="row">
+            <div class="col-md-3 mx-auto">
+                <div class="card">
+                <img class="card-img-top" src="obs.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Programet ditore</h4>
+                  <p class="card-text">Çdo ditë, Observatori i Prishtinës ju ofron shfaqje dhe ekspozita të mrekullueshme, si dhe një mundësi të rrallë për të vëzhguar me teleskopin tonë publik.</p>
+                  <button class="scroll-btn btn-secondary btn-sm  mt-auto align-self-end" onclick="scrollToSection('#ProgrametDitore')">Shiko me shumë</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <img class="card-img-top" src="obs2.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Ngjarjet e përseritura</h4>
+                  <p class="card-text">Programet virtuale dhe ato në person - kthehen çdo muaj në mënyrë të besueshme, njësoj si fazat e hënës!</p>
+                  <button class="scroll-btn btn-secondary btn-sm  mt-auto align-self-end" onclick="scrollToSection('#NgjarjetPerseritura')">Shiko me shumë</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <img class="card-img-top" src="obs3.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Ngjarjet speciale</h4>
+                  <p class="card-text">Observatori i Prishtinës me besueshmeri ju lidh me pamje të pazakonta në qiell, ndryshimin e stinëve, astronomët e vizitës dhe zbulimet e tyre më të fundit, dhe më shumë.</p>
+                  <button class="scroll-btn btn-secondary btn-sm  mt-auto align-self-end" onclick="scrollToSection('#NgjarjetSpeciale')">Shiko me shumë</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <img class="card-img-top" src="event.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Ngjarjet e kaluara</h4>
+                  <p class="card-text">Observatori i Prishtinës me besueshmeri ju lidh me pamje të pazakonta në qiell, ndryshimin e stinëve, astronomët e vizitës dhe zbulimet e tyre më të fundit, dhe më shumë.</p>
+                  <button class="scroll-btn btn-secondary btn-sm  mt-auto align-self-end" onclick="scrollToSection('#NgjarjetKaluara')">Shiko me shumë</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <br><br>
+      <br><br>
+      <div class="container">
+        <h2>Kur mund të na vizitoni</h2>
+      </div><br>
+      
+      <div class="listat">
+        <div class="box1">
+            <div class="list1">
+                <h2>Orët e punes</h2><br>
+                <dl>
+                    <dt><b>Ditët e javes (E martë - E premtë)</b></dt>
+                    <dd>10:00a.m - 20:00p.m</dd>
+                    <br>
+                    <dt><b>Ditët e vikendit (E shtunë - E dielë)</b></dt>
+                    <dd>11:00a.m - 20:00p.m</dd>
+                    <br>
+                    <dt><b>E hënë(mbyllur)</b></dt>
+                </dl>
+            </div>
+        </div>
+      
+        <div class="box2">
+            <div class="list2">
+                <h2>Orët speciale</h2><br>
+                <dl>
+                    <dt><b>Janar 24, 2024</b></dt>
+                    <dd>10:00 a.m. - 5:00 p.m</dd>
+                    <br>
+                    <dt><b>Janar 28, 2024</b></dt>
+                    <dd>2:00 p.m. - 5:00 p.m.</dd>
+                </dl>
+            </div>
+        </div>
+      </div>
+      <br><br>
+      
+      
+      <div class="container">
+        <h2 id="ProgrametDitore">Programet ditore</h2></div><br>
+        <div class="flex-container">
+           <div class="Text">
+          <p>Një nga përvojat më të veçanta që ju pret në Observatorin e Prishtinës është mundësia për të parë imazhin e drejtpërdrejtë të Diellit gjatë ditës përmes koelostatit tonë, një teleskop diellor që hap një dritare të mrekullueshme në botën e yjeve, apo permes syzeve të Eklipsit Diellor.
+      
+            Megjithatë, kjo është vetëm fillimi i aventurës suaj në këtë vend të veçantë. </p>
+            <p>Çdo natë, hapet një dritare tjetër drejt universit duke përdorur teleskopin tonë publik, duke ju mundësuar të eksploroni pamjet e mahnitshme të qiellit të errët. Kjo përvojë është falas dhe ofron një udhëtim të paparë në botën e astronomisë, duke ju dhënë mundësinë për të ndjekur hapat e një eksploruesi nëpër univers.
+            Për të shtuar emocionin dhe për të krijuar një eksperiencë të pashembullt për vizitorët, Observatori i Prishtinës është vendi ku shkencën dhe mrekullinë e hapësirës mund t'i bashkoni në një eksplorim të vazhdueshëm. Kështu që, për një ditë të ngarkuar me udhëtime nëpër univers, ky observator është destinacioni perfekt për aventurat tuaja astronomike.</p></div>
+      <div class="Image">
+        <img src="obs5.jpg" alt="Foto e eventit">
+      </div></div></div>
+      <br><br><br><br>
+        <div class="container">
+          <h2 id="NgjarjetPerseritura">Ngjarjet e përseritura</h2></div><br>
+           <div class="container2">
+           <div class="row">
+           <div class="col-md-3 mx-auto">
+             <div class="card">
+          <img class="card-img-top" src="sky.jpg" alt="Card image">
+          <div class="card-body d-flex flex-column">
+            <h4 class="card-title">Party me yjet</h4>
+          <p class="card-text" style="border-bottom: 1px solid #000; padding-bottom: 10px; ">
+            Një herë në muaj, Observatori bashkëpunon me grupe të vendit të teleskopëve për të ndarë teleskopët e tyre dhe njohuritë me publikun. 
+            Me dhjetëra teleskopë në fushën e jashtme, gjithmonë ka diçka për të parë!</p>
+          <dl><dt>Dita e party-it</dt>
+            <dd>Duke filluar nga 15/01/2024(Një herë në muaj)</dd>
+          </dl>
+       </div></div></div>
+                <div class="col-md-3 mx-auto">
+                  <div class="card">
+                    <img class="card-img-top" src="ekspodita.jpg" alt="Card image">
+                    <div class="card-body d-flex flex-column">
+                      <h4 class="card-title">Guida në muze</h4>
+                      <p class="card-text" style="border-bottom: 1px solid #000; padding-bottom: 10px; ">
+                        Prezantimi i gjatë rreth tetë minutash është një eksperiencë falas për të gjithë. 
+                        Gjatë këtij prezantimi, vizitorët mund të zbulojnë fotografitë e mahnitshme të hapësirës, të kapura me ndihmën e teleskopit tonë të specializuar.</p>
+      <dl><dt>Koha e Guides</dt>
+      <dd>Çdo të merkurë - 13:00
+      </dd></dl>
+                      </div></div></div>
+                <div class="col-md-3 mx-auto">
+                  <div class="card">
+                    <img class="card-img-top" src="ligjerate.jpg" alt="Card image">
+                    <div class="card-body d-flex flex-column">
+                      <h4 class="card-title">Ligjerata nga Astronomia</h4>
+                      <p class="card-text" style="border-bottom: 1px solid #000; padding-bottom: 10px; ">
+                      Ky është një program falas për të gjitha moshat që ilustron rëndësinë e Astronomisë në jetën tonë. Në këtë program, përveç shpjegimit të faktave themelore të astronomisë, inkurajohen diskutimet dhe bisedimet për aspekte më të thella dhe misterioze të universit.</p>
+                 <dl><dt>Dita e ligjeratës</dt>
+              <dd>Duke filluar nga 23/01/24  (Një herë në muaj) </dd></dl> 
+            </div></div></div></div><br><br>
+      
+          <div class="container">
+            <h2 id="NgjarjetSpeciale">Ngjarjet Speciale</h2></div><br>
+            <div class="container2">
+              <div class="row">
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <img class="card-img-top" src="hena.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Super-Hëna</h4>
+                  <p class="card-text">Çdo periudhë e saj është një histori e re për t'u zbuluar, duke sjellë ndjenjën e kureshtjes dhe emocionit te çdo prej nesh.</p>
+                   </div>
+              </div>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Super-Hëna</h4>
+                  <p class="card-text" style="border-bottom: 1px solid #000; padding-bottom: 20px; ">Super-hëna është një term që përdoret për të përshkruar një periudhë kur hëna e plotë është në pikën më të afërt të saj nga Terra në orbitën e saj eliptike. Kjo periudhë është e njohur për shkak të dukjes së hënës së plotë si më e madhe dhe më e ndritshme në qiell nga pamja e tokës.</p>
+                  <dl><dt>Datat e superheneve për vitin 2024</dt>
+                    <dd>19/08/24</dd>
+                    <dd>18/09/24</dd>
+                  <dd>17/10/24</dd>
+                  <dd>15/11/24</dd></dl>
+                    <a href="https://en.wikipedia.org/wiki/Supermoon" target="_blank" class="btn btn-secondary btn-sm  mt-auto align-self-end">Shiko me shumë</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <div class="card">
+                <img class="card-img-top" src="exclipse.jpg" alt="Card image">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Eklipset</h4>
+                  <p class="card-text">
+                    Njerëzit gjithmonë kanë kushtuar vëmendje eklipseve. Para se të dinin se çfarë po ndodhte, njerëzit frikësoheshin nga fakti që Dielli ose Hëna e përditshme do të zhdukej papritur. Edhe pse tani kuptojmë përse ndodhin eklipset dhe mund t'i parashikojmë ato me saktësi, ato ende janë tërheqëse për t'u vëzhguar.</p>
+                 </div>
+              </div>
+            </div><div class="col-md-3 mx-auto">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Eklipset</h4>
+                  <p class="card-text" style="border-bottom: 1px solid #000; padding-bottom: 20px; ">Eklipsat janë ngjarje kur një trup qiellor ndalon ose mbulon plotësisht ose pjesërisht një tjetër trup qiellor nga drita e diellit. Dallojmë dy lloje kryesore të eklipseve: eklipsa diellore dhe eklipsa hënore.</p>
+                  <dl><dt>Dita e shfaqjes së eklipsës së plotë</dt>
+                    <dd>08/04/24</dd>
+                    <dt>Ora e shfaqjes së eklipsës së plotë</dt>
+                    <dd>17:42</dd>
+                   </dl>
+                    <a href="https://www.timeanddate.com/eclipse/map/2024-april-8" target="_blank"  class="btn btn-secondary btn-sm  mt-auto align-self-end">Shiko me shumë</a>
+                </div>
+              </div>
+            </div>
+              </div></div></div>
+      <br><br>
+            <div class="container">
+              <h2 id="NgjarjetKaluara">Ngjarjet e kaluara</h2></div><br>
+              <div class="flex-container">
+                <div class="Text">
+                  <p>
+                    Eventet e kaluara në Observatorin e Prishtinës kanë qenë emocionuese dhe frymëzuese. Në Observatorin tonë, kemi organizuar evente të shumta dhe të ndryshme, duke përfshirë Ditet e Eklipses së Diellit, Eklipset e Hënës, vizitat e shkollave, prezantime të veçanta rreth planetëve të sistemit tonë diellor, si dhe demonstrime praktike të përdorimit të teleskopëve për vizitorët. </p>
+                    <p>Në të djathtë mund të vëreni fotot e bera në observatorin tonë gjatë eventeve të mëpareshme.</p>
+                 </div>
+              <div class="slideshow-container">
+                <div class="mySlides fade">
+                  <img src="event9.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="eklipsa2.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event5.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event13.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event20.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event11.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event12.jpg" style="width:100%">
+                </div> 
+                <div class="mySlides fade">
+                  <img src="event19.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="obs4.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event3.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event7.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                  <img src="event21.jpg" style="width:100%">
+                </div>
+              </div>
+           </div></div></div><br>
+           <script>
+            function scrollToSection(ProgrametDitore) {
+            const section = document.querySelector(ProgrametDitore);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function scrollToSection(NgjarjetPerseriturae) {
+            const section = document.querySelector(NgjarjetPerseritura);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function scrollToSection(NgjarjetSpeciale) {
+            const section = document.querySelector(NgjarjetSpeciale);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function scrollToSection(NgjarjetKaluara) {
+            const section = document.querySelector(NgjarjetKaluara);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          const slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) { slideIndex = 1 }
+          slides[slideIndex - 1].style.display = "block";
+          setTimeout(showSlides, 5000); // Kjo është për të ndryshuar fotot çdo 2 sekonda
+        }
+          </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+<br><br><br><br><br><br><br><br><br><br>
+<footer>
+    
+    <h4 >Observatori i Prishtines</h4>
+    <hr>
+    <address >Pallati i Rinise, Prishtina 10000</address>
+    <p >Numri i telefonit: +383 44 702 270</p>
+     <p >Na vizitoni:</p>
+    <a href="https://www.instagram.com/prishtina.observatory/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+        <img src="ig.png" alt="iglogo">
+    </a>
+    <a href="mailto:astroclubkosova@gmail.com" target="_blank">
+        <img src="gm.jpg" alt="logogmail">
+    </a>
+    <a href="https://www.facebook.com/AstronomyClubKosova?mibextid=LQQJ4d" target="_blank">
+        <img src="fb.jpg" alt="facebooklogo">
+    </a>
+   
+</footer>
+</html>
