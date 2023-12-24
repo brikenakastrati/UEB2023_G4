@@ -1,6 +1,7 @@
 
 body {
   height: 100vh;
+ 
   background-image: url('yjet.jpg');
   background-size: cover;
   background-position: center;
@@ -12,11 +13,12 @@ body {
 }
 
 .wrapper {
+  
   height: auto;
-  opacity: 0.9;
+  
   width: 380px; 
   margin: 5% auto;
-  background: rgba(0, 0, 0, 0.5);
+  background:black;
   padding: 5%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -79,7 +81,8 @@ button:hover{
 
 
 .input-container {
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: medium;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -100,6 +103,7 @@ input {
   margin-bottom: 10px; 
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: #ccc;
 }
 
 a {
