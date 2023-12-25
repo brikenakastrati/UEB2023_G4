@@ -6,54 +6,46 @@
     <title>SignUp</title>
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="signup-style.css">
-   
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('registerButton').addEventListener('click', function (event) {
-                var password = document.getElementById('password').value;
-                var confirmPassword = document.getElementById('confirmPassword').value;
-
-                if (password !== confirmPassword) {
-                    event.preventDefault();
-                    alert('Passwords do not match. Please enter matching passwords.');
-                }
-            });
-        });
-    </script>
-      <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('registerButton').addEventListener('click', function (event) {
                 var email = document.getElementById('username').value;
                 var password = document.getElementById('password').value;
                 var confirmPassword = document.getElementById('confirmPassword').value;
-
+    
                 // Check if email or password is blank
                 if (email.trim() === '' || password.trim() === '') {
                     event.preventDefault();
                     alert('Email and password are required. Please fill in both fields.');
-                }
-                // Check if passwords match
-                else if (password !== confirmPassword) {
+                } else if (password !== confirmPassword) {
                     event.preventDefault();
                     alert('Passwords do not match. Please enter matching passwords.');
+                } else {
+                    // Registration successful
+                    event.preventDefault();
+                    alert('You have successfully registered!');
+                    
+                    // Redirect to the specified link
+                    window.location.href = 'Qasja.html';
                 }
             });
         });
     </script>
+    
+        
+
+    
+    
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="hf.html">Rezervimi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Eventet</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Fakte</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Kontakti</a></li>
-            </ul>
-        </nav>
-    </header>
-
+ 
     <div class="wrapper">
+        <span>
+        <a href='Qasja.html'>&#8617</a>
+    </span>
+        <br>
+        <br>
+<br>
         <div class="image-container">
             <img src="ObvP.png" alt="error" class="styled-image1">
             <div class="input-container">
