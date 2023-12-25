@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="icon" href="tl.png" type="image/x-icon">
+    <link rel="stylesheet" href="Rezervimet-style.css">
+    
+</head>
+<body>
+ 
+    <header>
+        <img src="ObvP.png" alt="">
+        <a href="hf.html">Home</a>
+        <a href="">Fakte</a>
+        <a href="eventet.html">Evente</a>
+        <a href="">About us</a>
+        <a href="Qasja.html">Log in</a>
+    </header>
+    
+    <div class="wrapper">
+        <label for="Data">Data:</label>
+        <input type="date" id="todayDate">
+        <BR></BR>
+        <label for="Koha">Koha:</label>
+        <input type="time" id="Koha" name="Koha">
+        <button onclick="validateReservation()">Rezervo</button>
+    </div>
+    <h2>Orët e punes</h2><br>
+    
+
+    <script>
+      
+        document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
+    </script>
+    
+    <script>
+        function validateReservation() {
+            // Get the input values
+            var inputDate = document.getElementById('todayDate').value;
+            var inputTime = document.getElementById('Koha').value;
+
+            // Check if either date or time is blank
+            if (!inputDate || !inputTime) {
+                alert('Please enter both date and time.');
+                return;
+            }
+
+            // Create Date objects for comparison
+            var currentDate = new Date();
+            var selectedDate = new Date(inputDate + 'T' + inputTime);
+
+            // Check if the selected date is older than today
+            if (selectedDate < currentDate) {
+                alert('Selected date and time must be in the future.');
+                return;
+            }
+
+            // Check the day of the week
+            var dayOfWeek = selectedDate.getDay();
+
+            // Check if it's Monday to Friday
+            if (dayOfWeek >= 2 && dayOfWeek <= 5) { // 2 is Tuesday, 5 is Friday
+                // Check if the time is within the allowed range for weekdays
+                var selectedHour = selectedDate.getHours();
+                if (selectedHour < 10 || selectedHour > 20) {
+                    alert('On weekdays (Tuesday to Friday), you can only select a time between 10:00 and 20:00.');
+                    return;
+                }
+            }
+            // Check if it's Saturday or Sunday
+            else if (dayOfWeek === 0 || dayOfWeek === 6) { // 0 is Sunday, 6 is Saturday
+                // Check if the time is within the allowed range for weekends
+                var selectedHour = selectedDate.getHours();
+                if (selectedHour < 11 || selectedHour > 20) {
+                    alert('On weekends (Saturday and Sunday), you can only select a time between 11:00 and 20:00.');
+                    return;
+                }
+            }
+            // Check if it's Monday (closed)
+            else if (dayOfWeek === 1) { // 1 is Monday
+                alert('On Mondays, we are closed.');
+                return;
+            }
+
+            // If all validations pass, show a success message
+            alert('Reservation successful!');
+            // Add your code to submit the reservation or perform further actions here
+        }
+    </script>
+    
+
+    </script>
+</body>
+</html>
