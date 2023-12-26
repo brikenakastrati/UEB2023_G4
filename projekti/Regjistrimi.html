@@ -6,31 +6,65 @@
     <title>SignUp</title>
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="signup-style.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('registerButton').addEventListener('click', function (event) {
-                var email = document.getElementById('username').value;
-                var password = document.getElementById('password').value;
-                var confirmPassword = document.getElementById('confirmPassword').value;
-    
-                // Check if email or password is blank
-                if (email.trim() === '' || password.trim() === '') {
-                    event.preventDefault();
-                    alert('Email and password are required. Please fill in both fields.');
-                } else if (password !== confirmPassword) {
-                    event.preventDefault();
-                    alert('Passwords do not match. Please enter matching passwords.');
-                } else {
-                    // Registration successful
-                    event.preventDefault();
-                    alert('You have successfully registered!');
-                    
-                    // Redirect to the specified link
-                    window.location.href = 'Qasja.html';
-                }
-            });
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        .swal2-popup {
+            background-color: #2d2d2d !important;
+            color: #fff !important;
+        }
+
+        .swal2-title {
+            color: #61dafb !important;
+        }
+
+        .swal2-content {
+            color: #ccc !important;
+        }
+
+        .swal2-confirm {
+            color: #fff !important;
+            background-color: #61dafb !important;
+        }
+    </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('registerButton').addEventListener('click', function (event) {
+            var email = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (email.trim() === '' || password.trim() === '') {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: 'Please enter both email and password.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } else if (password !== confirmPassword) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: 'Passwords do not match.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+               
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Registration successful.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+
+                
+                window.location.href = 'Qasja.html';
+            }
         });
-    </script>
+    });
+</script>
+
     
         
 

@@ -1,7 +1,7 @@
 body{
    
     background-image: url('glowing-sky-night-star-atmosphere-dark-evening-scenic-space-galaxy-outer-space-starry-astronomy-stars-universe-nightsky-midnight-astronomical-object-931484-3258473284.jpg');
-    background-size:140%; /* Adjust the percentage as needed */
+    background-size:140%; 
     background-repeat: no-repeat;
 }
 header {
@@ -101,7 +101,11 @@ label{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
+#registerButton {
+  cursor: pointer;
+}
 button {
+
     border-color: #e1e3e4;
     height: 40px;
     width: 90px;
@@ -118,6 +122,6 @@ button {
     margin-left: 00px;
     color: #dfdfdf;
   }
-  button :hover{
+  button:hover {
     background-color: #495057;
-  }
+}

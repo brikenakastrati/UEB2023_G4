@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
+    <title>Rezervimet</title>
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="Rezervimet-style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -40,14 +40,16 @@
         <a href="Qasja.html">Log in</a>
     </header>
 
-    <div class="wrapper">
-        <label for="Data">Data:</label>
-        <input type="date" id="todayDate">
-        <br><br>
-        <label for="Koha">Koha:</label>
-        <input type="time" id="Koha" name="Koha">
-        <button onclick="validateReservation()">Rezervo</button>
-    </div>
+    <form id="reservationForm">
+        <div class="wrapper">
+            <label for="Data">Data:</label>
+            <input type="date" id="todayDate">
+            <br><br>
+            <label for="Koha">Koha:</label>
+            <input type="time" id="Koha" name="Koha">
+            <button type="button" id="registerButton" onclick="validateReservation()">Rezervo</button>
+        </div>
+    </form>
     <h2>Orët e punes</h2><br>
 
     <script>
@@ -114,7 +116,7 @@
                 }
             }
            
-            else if (dayOfWeek === 1) { // 1 is Monday
+            else if (dayOfWeek === 1) { 
                 Swal.fire({
                     title: 'Validation Error',
                     text: 'On Mondays, we are closed.',
