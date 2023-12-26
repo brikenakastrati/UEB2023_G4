@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us</title>
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="Rezervimet-style.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .swal2-popup {
+            background-color: #2d2d2d !important;
+            color: #fff !important;
+        }
+
+        .swal2-title {
+            color: #61dafb !important;
+        }
+
+        .swal2-content {
+            color: #ccc !important;
+        }
+
+        .swal2-confirm {
+            color: #fff !important;
+            background-color: #61dafb !important;
+        }
+    </style>
 </head>
+
 <body>
- 
+
     <header>
         <img src="ObvP.png" alt="">
         <a href="hf.html">Home</a>
@@ -18,79 +39,103 @@
         <a href="">About us</a>
         <a href="Qasja.html">Log in</a>
     </header>
-    
+
     <div class="wrapper">
         <label for="Data">Data:</label>
         <input type="date" id="todayDate">
-        <BR></BR>
+        <br><br>
         <label for="Koha">Koha:</label>
         <input type="time" id="Koha" name="Koha">
         <button onclick="validateReservation()">Rezervo</button>
     </div>
     <h2>Orët e punes</h2><br>
-    
 
     <script>
-      
         document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
-    </script>
-    
-    <script>
+
         function validateReservation() {
-            // Get the input values
+         
             var inputDate = document.getElementById('todayDate').value;
             var inputTime = document.getElementById('Koha').value;
 
-            // Check if either date or time is blank
+           
             if (!inputDate || !inputTime) {
-                alert('Please enter both date and time.');
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: 'Please enter both date and time.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
                 return;
             }
 
-            // Create Date objects for comparison
+           
             var currentDate = new Date();
             var selectedDate = new Date(inputDate + 'T' + inputTime);
 
-            // Check if the selected date is older than today
+            
             if (selectedDate < currentDate) {
-                alert('Selected date and time must be in the future.');
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: 'Selected date and time must be in the future.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
                 return;
             }
 
-            // Check the day of the week
+            
             var dayOfWeek = selectedDate.getDay();
 
-            // Check if it's Monday to Friday
-            if (dayOfWeek >= 2 && dayOfWeek <= 5) { // 2 is Tuesday, 5 is Friday
-                // Check if the time is within the allowed range for weekdays
+            
+            if (dayOfWeek >= 2 && dayOfWeek <= 5) { 
                 var selectedHour = selectedDate.getHours();
                 if (selectedHour < 10 || selectedHour > 20) {
-                    alert('On weekdays (Tuesday to Friday), you can only select a time between 10:00 and 20:00.');
+                    Swal.fire({
+                        title: 'Validation Error',
+                        text: 'On weekdays (Tuesday to Friday), you can only select a time between 10:00 and 20:00.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                     return;
                 }
             }
-            // Check if it's Saturday or Sunday
-            else if (dayOfWeek === 0 || dayOfWeek === 6) { // 0 is Sunday, 6 is Saturday
-                // Check if the time is within the allowed range for weekends
+            
+            else if (dayOfWeek === 0 || dayOfWeek === 6) { 
                 var selectedHour = selectedDate.getHours();
                 if (selectedHour < 11 || selectedHour > 20) {
-                    alert('On weekends (Saturday and Sunday), you can only select a time between 11:00 and 20:00.');
+                    Swal.fire({
+                        title: 'Validation Error',
+                        text: 'On weekends (Saturday and Sunday), you can only select a time between 11:00 and 20:00.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                     return;
                 }
             }
-            // Check if it's Monday (closed)
+           
             else if (dayOfWeek === 1) { // 1 is Monday
-                alert('On Mondays, we are closed.');
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: 'On Mondays, we are closed.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
                 return;
             }
 
-            // If all validations pass, show a success message
-            alert('Reservation successful!');
-            // Add your code to submit the reservation or perform further actions here
+           
+            Swal.fire({
+                title: 'Reservation Successful!',
+                text: 'Your reservation has been successfully submitted.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+
+            
         }
     </script>
-    
 
-    </script>
 </body>
+
 </html>
