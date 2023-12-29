@@ -1,11 +1,8 @@
-
 body {
-  
- 
   background-image: url('preview.jpg');
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  height: 100vh; 
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
@@ -14,16 +11,13 @@ body {
 
 .wrapper {
   
-  background: rgba(0, 0, 0, 0.5);
-
+  background: rgb(0, 0, 0);
   height: auto;
-  
   width: 380px; 
   margin: 5% auto;
- 
   padding: 5%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(176, 176, 176, 0.1);
 }
 
 .wrapper .page-buttons1 {
@@ -43,6 +37,8 @@ button {
   margin-bottom: 15px;
   border-radius: 15px;
   font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #ccc; 
+  box-shadow: 3px 3px 3px rgba(176, 176, 176, 0.1);
 }
 button:hover{
   background-color: #383636;
@@ -152,6 +148,7 @@ header img {
     margin-right: 10px;
 }
 
-span {
+.left-span {
   font-size: 30px;
- }
+  text-align: left;
+}

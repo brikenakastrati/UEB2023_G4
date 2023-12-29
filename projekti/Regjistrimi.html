@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style>
         .swal2-popup {
-            background-color: #2d2d2d !important;
+            background-color: #000000 !important;
             color: #fff !important;
         }
 
@@ -26,45 +26,55 @@
             background-color: #61dafb !important;
         }
     </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('registerButton').addEventListener('click', function (event) {
-            var email = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirmPassword').value;
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('registerButton').addEventListener('click', function (event) {
+        var email = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
 
-            if (email.trim() === '' || password.trim() === '') {
-                event.preventDefault();
-                Swal.fire({
-                    title: 'Validation Error',
-                    text: 'Please enter both email and password.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            } else if (password !== confirmPassword) {
-                event.preventDefault();
-                Swal.fire({
-                    title: 'Validation Error',
-                    text: 'Passwords do not match.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-               
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Registration successful.',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
+       
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                
-                window.location.href = 'Qasja.html';
-            }
-        });
+        if (email.trim() === '' || password.trim() === '') {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Validation Error',
+                text: 'Please enter both email and password.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        } else if (!emailRegex.test(email)) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Validation Error',
+                text: 'Please enter a valid email address.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        } else if (password !== confirmPassword) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Validation Error',
+                text: 'Passwords do not match.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        } else {
+           
+            Swal.fire({
+                title: 'Success',
+                text: 'Registration successful.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+
+            window.location.href = 'Qasja.html';
+        }
     });
-</script>
+});
 
+</script>
     
         
 

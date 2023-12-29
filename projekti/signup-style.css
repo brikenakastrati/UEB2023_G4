@@ -4,24 +4,24 @@ body {
     
     background-image: url('preview.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    height:90vh;
+
     
   }
   
   .wrapper {
     
-    height: 540px;
-    
-    background: rgba(0,0,0,0.5);
+    background: rgb(0, 0, 0);
+    height: auto;
     width: 380px; 
     margin: 5% auto;
-  
     padding: 5%;
     border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(176, 176, 176, 0.1);
     
   }
   
@@ -33,16 +33,17 @@ body {
   }
   
   button {
-    border: 1px solid #ccc;
     height: 40px;
     width: 90px;
-    background: rgb(12, 12, 12);
+    background: rgba(0, 0, 0, 0.5);
     margin-top: 30px;
-    margin-left: 130px;
+    margin-left: 140px;
     margin-right: 30px;
     margin-bottom: 15px;
     border-radius: 15px;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    color: #ccc; 
+    box-shadow: 3px 3px 3px rgba(176, 176, 176, 0.1);
   }
   button:hover{
     background-color: #383636;
@@ -151,3 +152,4 @@ body {
  span {
   font-size: 30px;
  }
+ 

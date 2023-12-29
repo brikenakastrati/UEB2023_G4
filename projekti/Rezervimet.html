@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervimet</title>
@@ -10,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .swal2-popup {
-            background-color: #2d2d2d !important;
+            background-color: #000000 !important;
             color: #fff !important;
         }
 
@@ -26,6 +28,8 @@
             color: #fff !important;
             background-color: #61dafb !important;
         }
+
+      
     </style>
 </head>
 
@@ -33,111 +37,145 @@
 
     <header>
         <img src="ObvP.png" alt="">
-        <a href="hf.html">Home</a>
+        <a href="hf.html">Kryefaqja</a>
         <a href="">Fakte</a>
         <a href="eventet.html">Evente</a>
-        <a href="">About us</a>
-        <a href="Qasja.html">Log in</a>
+        <a href="">Rreth nesh</a>
+        <a href="Qasja.html">Hyrje</a>
     </header>
 
     <form id="reservationForm">
+    
+        
         <div class="wrapper">
+            
             <label for="Data">Data:</label>
             <input type="date" id="todayDate">
             <br><br>
             <label for="Koha">Koha:</label>
-            <input type="time" id="Koha" name="Koha">
+            <input type="time" id="Koha" name="Koha" step="3600" oninput="formatTimeInput()">
             <button type="button" id="registerButton" onclick="validateReservation()">Rezervo</button>
         </div>
     </form>
-    <h2>Orët e punes</h2><br>
 
+
+    <div class="container">
+        <h1>Exploro universin ne observatorin tonë</h1>
+       <ol>
+        <h3>Vizita në observatorin tonë është një përvojë e mbresëlënë për disa arsye: </h3>
+       
+    <li><strong>Observimi i Yjeve:</strong> Teleskopë të fuqishëm ofrojnë pamje nga afër të planeteve, yjeve dhe galaksive.</li>
+    <li><strong>Arsimimi:</strong> Observatorët ofrojnë programe dhe udhëtime për njohjen më të thellë të astronomisë.</li>
+    <li><strong>Ngjarje Speciale:</strong> Shihni ngjarje të rralla qiellore si shiuj dhe eklipse.</li>
+    <li><strong>Vendndodhjet me Qiell të Errët:</strong> larg dritave të qytetit, observatorët ofrojnë pamje të qarta të qiellit të natës.</li>
+    <li><strong>Facilitetet e Kërkimit:</strong> Disa observatorë angazhohen në kërkime astronomike të përparuara.</li>
+    <li><strong>Inspirimi:</strong> Observatorët shkaktojnë mrekulli dhe frymëzojnë një vlerësim për kozmosin.</li>
+    <li><strong>Fotografi:</strong> Ideale për astrofotografi me qiell të qartë dhe pajisje të avancuara.</li>
+    <li><strong>Komuniteti:</strong> Ngjarjet nxisin një ndjenjë komuniteti midis entuziastëve të astronomisë.</li>
+</ol>
+
+    </div>
+    
+        
+    <!--<div class="box1">
+                <h2>Orët e punes</h2><br>
+                <dl>
+                    <dt><b>Ditët e javes (E martë - E premtë)</b></dt>
+                    <dd>10:00a.m - 20:00p.m</dd>
+                    <br>
+                    <dt><b>Ditët e vikendit (E shtunë - E dielë)</b></dt>
+                    <dd>11:00a.m - 20:00p.m</dd>
+                    <br>
+                    <dt><b>E hënë(mbyllur)</b></dt>
+                </dl>
+         </div>-->
+         <div class="map-container">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     <script>
         document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
 
+        function formatTimeInput() {
+            var inputTime = document.getElementById('Koha');
+            var timeValue = inputTime.value;
+            var formattedTime = timeValue.substring(0, 2) + ':00';
+            inputTime.value = formattedTime;
+        }
+
         function validateReservation() {
-         
+            document.body.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+
             var inputDate = document.getElementById('todayDate').value;
             var inputTime = document.getElementById('Koha').value;
 
-           
             if (!inputDate || !inputTime) {
                 Swal.fire({
-                    title: 'Validation Error',
-                    text: 'Please enter both date and time.',
+                    title: 'Gabim në Validim',
+                    text: 'Ju lutem vendosni si datën ashtu edhe kohën.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
                 return;
             }
 
-           
+            // Validimi i dates
+            var selectedDate = new Date(inputDate);
             var currentDate = new Date();
-            var selectedDate = new Date(inputDate + 'T' + inputTime);
+            currentDate.setDate(currentDate.getDate() + 1);
 
-            
             if (selectedDate < currentDate) {
                 Swal.fire({
-                    title: 'Validation Error',
-                    text: 'Selected date and time must be in the future.',
+                    title: 'Gabim në Validim',
+                    text: 'Duhet të kryeni rezervimin të paktën një ditë para datës së dëshiruar.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
                 return;
             }
 
-            
-            var dayOfWeek = selectedDate.getDay();
 
-            
-            if (dayOfWeek >= 2 && dayOfWeek <= 5) { 
-                var selectedHour = selectedDate.getHours();
-                if (selectedHour < 10 || selectedHour > 20) {
-                    Swal.fire({
-                        title: 'Validation Error',
-                        text: 'On weekdays (Tuesday to Friday), you can only select a time between 10:00 and 20:00.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                    return;
-                }
-            }
-            
-            else if (dayOfWeek === 0 || dayOfWeek === 6) { 
-                var selectedHour = selectedDate.getHours();
-                if (selectedHour < 11 || selectedHour > 20) {
-                    Swal.fire({
-                        title: 'Validation Error',
-                        text: 'On weekends (Saturday and Sunday), you can only select a time between 11:00 and 20:00.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                    return;
-                }
-            }
-           
-            else if (dayOfWeek === 1) { 
-                Swal.fire({
-                    title: 'Validation Error',
-                    text: 'On Mondays, we are closed.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                return;
-            }
-
-           
             Swal.fire({
-                title: 'Reservation Successful!',
-                text: 'Your reservation has been successfully submitted.',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
+                title: 'Vendosni Të Dhënat Tuaja',
+                html:
+                    '<input id="swal-input-name" class="swal2-input" placeholder="Emri">' +
+                    '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri">' +
+                    '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit">',
+                allowOutsideClick: false,
+                confirmButtonText: 'Dërgo',
+                preConfirm: () => {
+                    const name = Swal.getPopup().querySelector('#swal-input-name').value;
+                    const surname = Swal.getPopup().querySelector('#swal-input-surname').value;
+                    const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
 
-            
+                    // Validim
+                    if (!name || !surname || !phone) {
+                        Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
+                        return false;
+                    }
+
+                    //database
+                    const phoneNumberRegex = /^\+\d{11}$/;
+                    if (!phoneNumberRegex.test(phone)) {
+                        Swal.showValidationMessage('Numri i telefonit i pavlefshëm.');
+                        return false;
+                    }
+
+                    return { name: name, surname: surname, phone: phone };
+                }
+            }).then((result) => {
+                console.log(result.value);
+
+                document.body.style.boxShadow = 'none';
+
+                Swal.fire({
+                    title: 'Rezervimi është kryer me sukses!',
+                    text: 'Rezervimi juaj është dërguar me sukses.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            });
         }
     </script>
-
 </body>
 
 </html>
