@@ -35,14 +35,23 @@
 
 <body>
 
+
     <header>
-        <img src="ObvP.png" alt="">
-        <a href="hf.html">Kryefaqja</a>
-        <a href="">Fakte</a>
-        <a href="eventet.html">Evente</a>
-        <a href="">Rreth nesh</a>
-        <a href="Qasja.html">Hyrje</a>
+        <img src="ObvP.png" alt="Observatory of Prishtina">
+        <nav>
+            <ul>
+                <li><a href="#rezervimi">Rezervimi</a></li>
+                <li><a href="#eventet">Eventet</a></li>
+                <li><a href="#fakte">Fakte</a></li>
+                <li><a href="#kontakti">Kontakti</a></li>
+            </ul>
+        </nav>
     </header>
+    
+  
+        <br><br><br><br><br>    <br><br><br><br><br>   
+       
+ 
 
     <form id="reservationForm">
     
@@ -76,19 +85,7 @@
 
     </div>
     
-        
-    <!--<div class="box1">
-                <h2>Orët e punes</h2><br>
-                <dl>
-                    <dt><b>Ditët e javes (E martë - E premtë)</b></dt>
-                    <dd>10:00a.m - 20:00p.m</dd>
-                    <br>
-                    <dt><b>Ditët e vikendit (E shtunë - E dielë)</b></dt>
-                    <dd>11:00a.m - 20:00p.m</dd>
-                    <br>
-                    <dt><b>E hënë(mbyllur)</b></dt>
-                </dl>
-         </div>-->
+    
          <div class="map-container">
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -175,6 +172,39 @@
                 });
             });
         }
+    </script>
+    <footer>
+        <h4>Observatori i Prishtin&euml;s</h4>
+        <hr>
+        <address>Pallati i Rinis&euml;, Prishtina 10000</address>
+        <p>Numri i telefonit: +383 44 702 270</p>
+        <p class="p1">Na vizitoni:</p>
+        <a href="https://www.instagram.com/prishtina.observatory/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+            <img src="ig.png" alt="iglogo">
+        </a>
+        <a href="mailto:astroclubkosova@gmail.com" target="_blank">
+            <img src="gm.jpg" alt="logogmail">
+        </a>
+        <a href="https://www.facebook.com/AstronomyClubKosova?mibextid=LQQJ4d" target="_blank">
+            <img src="fb.jpg" alt="facebooklogo">
+        </a>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var header = document.querySelector('header');
+
+            // Function to toggle the 'scrolled' class based on scroll position
+            function toggleHeaderBackground() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+
+            // Add scroll event listener to toggle header background
+            window.addEventListener('scroll', toggleHeaderBackground);
+        });
     </script>
 </body>
 
