@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
+     @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+    #backToTopButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      user-select: none;
+      cursor: grab;
+      transition: all 0.3s;
+      border-radius: 50%; /* Set border-radius for a round shape */
+    }
+
+    #backToTopButton:hover span {
+      animation: spin 1.5s linear infinite;
+      transform-origin: center;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: black; border: 1px solid black;">
+    <span>&#9733; </span> Back
+  </button>
+
+  <script>
+   
+
+    // funksioni per drag n drop 
+    var button = document.getElementById('backToTopButton');
+    var offsetX, offsetY;
+
+    button.addEventListener("dragstart", function (event) {
+      event.dataTransfer.setData("text/plain", null);
+      offsetX = event.clientX - button.getBoundingClientRect().left;
+      offsetY = event.clientY - button.getBoundingClientRect().top;
+    });
+
+    document.addEventListener("dragover", function (event) {
+      event.preventDefault();
+
+      if (offsetX && offsetY) {
+        var x = event.clientX - offsetX;
+        var y = event.clientY - offsetY;
+
+        button.style.transform = "translate(" + x + "px, " + y + "px)";
+      }
+    });
+
+    document.addEventListener("drop", function (event) {
+      event.preventDefault();
+
+      if (offsetX && offsetY) {
+        button.style.transform = "translate(0px, 0px)";
+        offsetX = offsetY = null;
+      }
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
