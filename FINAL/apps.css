@@ -1,27 +1,35 @@
+* {
+  max-width: 100%;
+  color: rgba(255, 255, 255, 0.886);
+}
+
+.highlight {
+  background-color: rgba(25, 47, 87, 0.592);
+}
+
+abbr {
+  background-color: rgba(25, 47, 87, 0.225);
+}
+
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.886);
 }
 
-.card {
-    max-width: 400px; /* Set the maximum width */
-    height: 100%; /* Set a fixed height */
-    margin: 0 auto;
+.card dd {
+  font-style: italic;
+  border-style: none;
 }
 
-.card-img-top {
-width: 100%;
-height: 250px; /* Set the desired height */
-object-fit: cover; /* Maintain aspect ratio */
-}
-
-.container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-    background-color:  white;
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  background-color: black;
 }
 
 .flex-container {
@@ -47,128 +55,136 @@ object-fit: cover; /* Maintain aspect ratio */
 .Image img {
   max-width: 80%;
   height: 80%;
+  background-size: cover;
 }
 
-.container h2{
-    margin-right: 10px;
-    margin-left: 10px;
-    justify-content: center;
-  }
-
-.container::after{
-    content: '';
-    flex: 1;
-    border-bottom: 2px solid black; /* Adjust line properties as needed */
-    margin-left: 10px; 
+.container h2 {
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
 }
 
-  .image-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden; /* Hide overflow for the border */
+.container::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid white;
+  /* Adjust line properties as needed */
+  margin-left: 10px;
 }
+
+#p-container {
+  background-image: url('obs4.jpg');
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -60px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#p-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: .7;
+  z-index: -1;
+}
+
+.center-text h1 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 100px;
+  font-weight: bold; 
+  font-style: italic;
+  transition: font-size 0.2s ease;
+}
+
+#p-container .center-text h1:hover {
+  font-size: 45px; 
   
-  .text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    
-  }
-  
-  .text-overlay h1 {
-    color: white;
-    padding: 10px;
-  }
-
-  .image-container {
-    display: inline-block;
-    
-  }
-  .image-frame {
-    width: 100vw; 
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .image-frame::before {
-    content: ''; /* Create an element for the inner frame */
-    position: absolute; 
-    top: 5%;
-    left: 5%; 
-    width: 90%;
-    height: 90%; 
-    border: 1px solid white; 
-    box-sizing: border-box;
-  }
-  .image-frame img {
-    width: 100%; 
-    height: auto; 
-    object-fit: contain;
-  }
-
-  .mySlides {
-    display: none;
-    animation: fadeEffect 5s;
-  }
-  
-  /* Stilizimi i slideshow container */
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-  }
-  .mySlides img {
-    width: 100%;
-    height: 400px; 
-  }
-  
-  /* Animacioni i faditjes */
-  @keyframes fadeEffect {
-    from {opacity: .2}
-    to {opacity: 1}
-  }
-
-  .list1, .list2 {
-    height: 100%; /* Ensure full height of their container */
-    display: flex; /* Apply flex layout to the lists */
-    flex-direction: column; /* Arrange list items vertically */
-    position: relative;
-    display: flex;
-    padding-bottom: 10px;
-    background-color: rgb(219, 218, 218);
+}
+.mySlides {
+  display: none;
+  animation: fadeEffect 5s;
 }
 
-.listat{
-    display: flex;
-    
-    background-color: white;
-  }
-.nav-link{
-    color: white;
+/* Stilizimi i slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-  .box1, .box2, .box3 {
-    width: 40vw;
-    height: 40vh;
-    flex: 1;
-    margin-left: 50px;
-    margin-right: 50px;
-    display: flex;
-    overflow: hidden;
-    padding: 5px;
-    background-color: rgb(219, 218, 218);
-    flex-direction: column;
-    position: relative; /* To position lines */
+.mySlides img {
+  width: 100%;
+  height: 400px;
+}
+
+/* Animacioni i faditjes */
+@keyframes fadeEffect {
+  from {
+    opacity: .2
   }
 
-.box1 h2, .box2 h2,
-.box1 dl, .box2 dl{
-        position: relative;
-        padding-left: 20px; /* Adjust the padding-left for text and lists */
+  to {
+    opacity: 1
+  }
+}
+
+.list1,
+.list2 {
+  height: 100%;
+  /* Ensure full height of their container */
+  display: flex;
+  /* Apply flex layout to the lists */
+  flex-direction: column;
+  /* Arrange list items vertically */
+  position: relative;
+  display: flex;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.563);
+}
+
+.listat {
+  display: flex;
+  background-color: black;
+}
+
+
+.box1,
+.box2 {
+  width: 40vw;
+  height: 40vh;
+  flex: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  overflow: hidden;
+  padding: 5px;
+  background-color: black;
+  flex-direction: column;
+  position: relative;
+  /* To position lines */
+}
+
+.box1 h2,
+.box2 h2,
+.box1 dl,
+.box2 dl {
+  position: relative;
+  padding-left: 20px;
+  /* Adjust the padding-left for text and lists */
 }
 
 
@@ -177,8 +193,40 @@ object-fit: cover; /* Maintain aspect ratio */
   content: '';
   display: block;
   position: absolute;
-  width: calc(100% - 40px); 
+  width: calc(100% - 40px);
   bottom: -10px;
   left: 20px;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid white;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 129px;
+  transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+  fill: rgba(25, 47, 87, 0.592);
+}
+
+#restartButton {
+  outline-style: dashed;
+  outline-width: 2px;
+  outline-color: rgba(25, 47, 87, 0.592);
+  outline-offset: 3px;
+}
+
+.myVideo {
+  margin: 20px 20px 20px 20px; /* top right bottom left */
 }
