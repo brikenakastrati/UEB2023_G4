@@ -78,7 +78,6 @@ body, html {
   width: 100%;
   z-index: 1;
   height: 100vh;
-  color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -86,6 +85,7 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-attachment: fixed;
 }
 
 #p-container::after {
@@ -107,13 +107,19 @@ body, html {
   padding-top: 100px;
   font-weight: bold; 
   font-style: italic;
-  transition: font-size 0.2s ease;
+  text-wrap: none
 }
 
 #p-container .center-text h1:hover {
   font-size: 45px; 
-  
+  background-image: radial-gradient(rgb(107, 136, 222), rgb(34, 34, 97));
+  transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out; /* Adding a transition effect */
+  color: transparent; /* Hide the text color initially */
+  -webkit-background-clip: text; /* Apply gradient to text */
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .mySlides {
   display: none;
   animation: fadeEffect 5s;
@@ -225,8 +231,21 @@ body, html {
   outline-width: 2px;
   outline-color: rgba(25, 47, 87, 0.592);
   outline-offset: 3px;
+  transition: outline-color 0.5s ease-in-out;
+}
+
+#restartButton:hover,
+#restartButton:focus {
+  outline-color: rgba(25, 47, 87, 1); /* Change the color to a more solid one */
 }
 
 .myVideo {
   margin: 20px 20px 20px 20px; /* top right bottom left */
+}
+
+.Text ul{
+  list-style-type: circle;
+}
+.blue-bullet li{
+  list-style-type: none; /* Fshij pikat e standardizuara të listës */
 }
