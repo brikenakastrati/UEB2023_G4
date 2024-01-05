@@ -6,42 +6,52 @@
     <title>Qasja</title>
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="Qasja-style.css">
+    <head>
+        <link rel="stylesheet" 
+              href=
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    </head>
     
     
 
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="planet_earth_-_2118 (Original).mp4" type="video/mp4">
+    </video>
     <header>
     <br><br><br>
       
 
     <div class="wrapper">
+        <br><br><br>
        <span class="left-span">
-           <a href='hf.html'>&#8617</a>
+           <a href='hf.html' id="a">&#8617</a>
         </span>
         <br>
         <br>
-         <div class="image-container">
-        <img src="ObvP.png" alt="error" class="styled-image1">
+     
         <div class="input-container">
             <br>
             <br>
-  <label for="Emailadress">Email:</label>
-  <input type="email" id="username" name="username" placeholder="Enter your email">
+  <i class="fa fa-user icon"></i>
+  <input type="email"  name="username" placeholder="Email">
   <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" placeholder="Enter your password">
+
+    <i class="fa fa-lock icon"></i>
+    <input type="password"  name="password" placeholder="Password">
 </div>
 
 
 <div class="page-buttons">
       
-    <button type="button" id="Qasja" onclick="window.location.href='hf.html'">LOG IN</button>
+    <button type="button" id="myButton" onclick="window.location.href='hf.html'"><b>LOG IN</b></button>
 
-    <button type="button" id="registerButton" onclick="window.location.href='Regjistrimi.html'">REGISTER</button>
     
-   
 </div>
+
+<p>Nuk keni llogari?<a href="Regjistrimi.html"> <b>Regjistrohu</b></a></p>
 <a href="https://www.instagram.com/">
     <img src="ig.png" alt="error"class="styled-image2">
     </a>

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rezervimet</title>
@@ -11,13 +9,21 @@
     <link rel="stylesheet" href="Rezervimet-style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+        body {
+            box-shadow: none;
+        }
+
+        header.scrolled {
+            background-color: #000;
+        }
+
         .swal2-popup {
-            background-color: #000000 !important;
+            background-color: #000 !important;
             color: #fff !important;
         }
 
         .swal2-title {
-            color: #61dafb !important;
+            color: #ffffff !important;
         }
 
         .swal2-content {
@@ -25,17 +31,38 @@
         }
 
         .swal2-confirm {
-            color: #fff !important;
-            background-color: #61dafb !important;
+            color: #000000 !important;
+            background-color: #ffffff !important;
+            width: 100px; 
+            height: 40px; 
+            font-size: 16px; 
         }
 
-      
+        .swal2-popup-animation-show {
+            opacity: 1;
+            transform: scale(0.5);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .swal2-popup-animation-show.swal2-shown {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .swal2-popup-animation-hide {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .swal2-popup-animation-hide.swal2-hidden {
+            opacity: 1;
+            transform: scale(0.5);
+        }
     </style>
 </head>
 
 <body>
-
-
     <header>
         <img src="ObvP.png" alt="Observatory of Prishtina">
         <nav>
@@ -47,19 +74,14 @@
             </ul>
         </nav>
     </header>
-    
-  
-        <br><br><br><br><br>    <br><br><br><br><br>   
-       
- 
+
+    <br><br><br><br><br> <br><br><br><br><br>
 
     <form id="reservationForm">
-    
-        
         <div class="wrapper">
-            
             <label for="Data">Data:</label>
-            <input type="date" id="todayDate">
+            <input type="date" id="todayDate" value="">
+
             <br><br>
             <label for="Koha">Koha:</label>
             <input type="time" id="Koha" name="Koha" step="3600" oninput="formatTimeInput()">
@@ -67,116 +89,197 @@
         </div>
     </form>
 
-
     <div class="container">
         <h1>Exploro universin ne observatorin tonë</h1>
-       <ol>
-        <h3>Vizita në observatorin tonë është një përvojë e mbresëlënë për disa arsye: </h3>
-       
-    <li><strong>Observimi i Yjeve:</strong> Teleskopë të fuqishëm ofrojnë pamje nga afër të planeteve, yjeve dhe galaksive.</li>
-    <li><strong>Arsimimi:</strong> Observatorët ofrojnë programe dhe udhëtime për njohjen më të thellë të astronomisë.</li>
-    <li><strong>Ngjarje Speciale:</strong> Shihni ngjarje të rralla qiellore si shiuj dhe eklipse.</li>
-    <li><strong>Vendndodhjet me Qiell të Errët:</strong> larg dritave të qytetit, observatorët ofrojnë pamje të qarta të qiellit të natës.</li>
-    <li><strong>Facilitetet e Kërkimit:</strong> Disa observatorë angazhohen në kërkime astronomike të përparuara.</li>
-    <li><strong>Inspirimi:</strong> Observatorët shkaktojnë mrekulli dhe frymëzojnë një vlerësim për kozmosin.</li>
-    <li><strong>Fotografi:</strong> Ideale për astrofotografi me qiell të qartë dhe pajisje të avancuara.</li>
-    <li><strong>Komuniteti:</strong> Ngjarjet nxisin një ndjenjë komuniteti midis entuziastëve të astronomisë.</li>
-</ol>
-
+        <ol>
+            <h3>Vizita në observatorin tonë është një përvojë e mbresëlënë për disa arsye: </h3>
+            <li><strong>Observimi i Yjeve:</strong> Teleskopë të fuqishëm ofrojnë pamje nga afër të planeteve, yjeve dhe galaksive.</li>
+            <li><strong>Arsimimi:</strong> Observatorët ofrojnë programe dhe udhëtime për njohjen më të thellë të astronomisë.</li>
+            <li><strong>Ngjarje Speciale:</strong> Shihni ngjarje të rralla qiellore si shiuj dhe eklipse.</li>
+            <li><strong>Vendndodhjet me Qiell të Errët:</strong> larg dritave të qytetit, observatorët ofrojnë pamje të qarta të qiellit të natës.</li>
+            <li><strong>Facilitetet e Kërkimit:</strong> Disa observatorë angazhohen në kërkime astronomike të përparuara.</li>
+            <li><strong>Inspirimi:</strong> Observatorët shkaktojnë mrekulli dhe frymëzojnë një vlerësim për kozmosin.</li>
+            <li><strong>Fotografi:</strong> Ideale për astrofotografi me qiell të qartë dhe pajisje të avancuara.</li>
+            <li><strong>Komuniteti:</strong> Ngjarjet nxisin një ndjenjë komuniteti midis entuziastëve të astronomisë.</li>
+        </ol>
     </div>
+    <div class="container1">
+        <h1>Udhëzimet për Rezervime</h1>
+<ol>
+    <li>Rezervimet zgjasin 1 orë.</li>
+    <br>
+    <li>Rezervimet në ditët e javës mund të bëhen nga ora 10:00 deri në ora 19:00.</li>
+    <br>
+    <li>Rezervimet në fundjavë mund të bëhen nga ora 11:00 deri në ora 19:00.</li>
+    <br>
+    <li>E hëna është e mbyllur.</li>
+   <br>
+    <li>Rezervimet duhet të bëhen 1 ditë paraprakisht.</li>
+    <br>
+    <li>Gjatë verifikimit, sigurohuni që të dhënat e dhëna janë valide.</li>
     
-    
-         <div class="map-container">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+</ol>
+</div>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <script>
-        document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
-
+       
         function formatTimeInput() {
+            document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
+    
             var inputTime = document.getElementById('Koha');
             var timeValue = inputTime.value;
             var formattedTime = timeValue.substring(0, 2) + ':00';
             inputTime.value = formattedTime;
         }
-
+    
+    
         function validateReservation() {
             document.body.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-
+    
             var inputDate = document.getElementById('todayDate').value;
             var inputTime = document.getElementById('Koha').value;
-
+    
+    
+            var selectedDate = new Date(inputDate + 'T' + inputTime);
+            var currentDate = new Date();
+    
             if (!inputDate || !inputTime) {
                 Swal.fire({
                     title: 'Gabim në Validim',
                     text: 'Ju lutem vendosni si datën ashtu edhe kohën.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    background: '#000000',
+                    confirmButtonColor: '#ff0000',
+                    iconColor: '#ff0000',
                 });
                 return;
             }
-
-            // Validimi i dates
-            var selectedDate = new Date(inputDate);
-            var currentDate = new Date();
-            currentDate.setDate(currentDate.getDate() + 1);
-
+    
             if (selectedDate < currentDate) {
                 Swal.fire({
                     title: 'Gabim në Validim',
                     text: 'Duhet të kryeni rezervimin të paktën një ditë para datës së dëshiruar.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    background: '#000000',
+                    confirmButtonColor: '#ff0000',
+                    iconColor: '#ff0000',
                 });
                 return;
             }
+ 
+            var dayOfWeek = selectedDate.getDay();
+            var selectedHour = selectedDate.getHours();
+    
+            if ((dayOfWeek >= 2 && dayOfWeek <= 5 && (selectedHour < 10 || selectedHour > 19)) ||
+                ((dayOfWeek === 0 || dayOfWeek === 6) && (selectedHour < 11 || selectedHour > 19)) ||
+                (dayOfWeek === 1)) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Validation Error',
+                    text: getValidationErrorMessage(dayOfWeek),
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                });
+                return;
+            }
+    
+            
+            showUserDetailsInput();
+        }
+    
+function showUserDetailsInput() {
+    Swal.fire({
+        title: 'Vendosni Të Dhënat Tuaja',
+        html:
+            '<input id="swal-input-name" class="swal2-input" placeholder="Emri">' +
+            '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri">' +
+            '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit">',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonText: 'Dërgo',
+        background: '#000000',
+        confirmButtonColor: '#00ff00',
+        iconColor: '#00ff00',
+        customClass: {
+            confirmButton: 'custom-confirm-button',
+        },
+        preConfirm: function () {
+           
+            const name = Swal.getPopup().querySelector('#swal-input-name').value;
+            const surname = Swal.getPopup().querySelector('#swal-input-surname').value;
+            const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
 
+            if (!name || !surname || !phone) {
+                Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
+                return false;
+            }
+
+            const nameRegex = /^[a-zA-Z]{3,}$/;
+            const surnameRegex = /^[a-zA-Z]{3,}$/;
+
+            if (!nameRegex.test(name) || !surnameRegex.test(surname)) {
+                Swal.showValidationMessage('Emri dhe mbiemri duhet të përmbajnë vetëm shkronja dhe të jenë të paktën 3 shkronjat.');
+                return false;
+            }
+
+            const phoneNumberRegex = /^\+\d{10,11}$/;
+
+            if (!phoneNumberRegex.test(phone)) {
+                Swal.showValidationMessage('Numri i telefonit i pavlefshëm.');
+                return false;
+            }
+
+            return { name: name, surname: surname, phone: phone };
+        },
+        allowEnterKey: false,
+    }).then((result) => {
+        if (result.isConfirmed && result.value) {
+            console.log(result.value);
+
+            
+            document.body.style.boxShadow = 'none';
 
             Swal.fire({
-                title: 'Vendosni Të Dhënat Tuaja',
-                html:
-                    '<input id="swal-input-name" class="swal2-input" placeholder="Emri">' +
-                    '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri">' +
-                    '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit">',
-                allowOutsideClick: false,
-                confirmButtonText: 'Dërgo',
-                preConfirm: () => {
-                    const name = Swal.getPopup().querySelector('#swal-input-name').value;
-                    const surname = Swal.getPopup().querySelector('#swal-input-surname').value;
-                    const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
-
-                    // Validim
-                    if (!name || !surname || !phone) {
-                        Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
-                        return false;
-                    }
-
-                    //database
-                    const phoneNumberRegex = /^\+\d{11}$/;
-                    if (!phoneNumberRegex.test(phone)) {
-                        Swal.showValidationMessage('Numri i telefonit i pavlefshëm.');
-                        return false;
-                    }
-
-                    return { name: name, surname: surname, phone: phone };
-                }
-            }).then((result) => {
-                console.log(result.value);
-
-                document.body.style.boxShadow = 'none';
-
-                Swal.fire({
-                    title: 'Rezervimi është kryer me sukses!',
-                    text: 'Rezervimi juaj është dërguar me sukses.',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
+                title: 'Rezervimi është kryer me sukses!',
+                text: 'Rezervimi juaj është dërguar me sukses.',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                background: '#000000',
+                confirmButtonColor: '#00ff00',
+                iconColor: '#00ff00',
             });
         }
+    });
+}
+
+
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('header');
+    
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    
+    
+        document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
+    
+  
+        document.getElementById('registerButton').addEventListener('click', validateReservation);
     </script>
+    
+    
     <footer>
-        <h4>Observatori i Prishtin&euml;s</h4>
+        <h4>Observatori i Prishtinës</h4>
         <hr>
-        <address>Pallati i Rinis&euml;, Prishtina 10000</address>
+        <address>Pallati i Rinisë, Prishtina 10000</address>
         <p>Numri i telefonit: +383 44 702 270</p>
         <p class="p1">Na vizitoni:</p>
         <a href="https://www.instagram.com/prishtina.observatory/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
@@ -189,23 +292,9 @@
             <img src="fb.jpg" alt="facebooklogo">
         </a>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var header = document.querySelector('header');
 
-            // Function to toggle the 'scrolled' class based on scroll position
-            function toggleHeaderBackground() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
+  
 
-            // Add scroll event listener to toggle header background
-            window.addEventListener('scroll', toggleHeaderBackground);
-        });
-    </script>
 </body>
 
 </html>
