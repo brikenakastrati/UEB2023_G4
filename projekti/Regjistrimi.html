@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+        /* Add your custom styles here */
         .swal2-popup {
             background-color: #000000 !important;
             color: #fff !important;
@@ -35,107 +36,148 @@
                 var email = document.getElementsByName('email')[0].value;
                 var password = document.getElementsByName('password')[0].value;
                 var confirmPassword = document.getElementsByName('confirmPassword')[0].value;
-    
+                var termsCheckbox = document.getElementById('termsCheckbox');
+
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
                 if (email.trim() === '' || password.trim() === '') {
                     Swal.fire({
-                    title: 'Gabim në Validim',
-                    text: 'Plotsoni te gjitha fushat.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    background: '#000000',
-                    confirmButtonColor: '#ff0000',
-                    iconColor: '#ff0000',
-                });
-                    
+                        title: 'Gabim në Validim',
+                        text: 'Plotsoni te gjitha fushat.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        background: '#000000',
+                        confirmButtonColor: '#ff0000',
+                        iconColor: '#ff0000',
+                    });
                 } else if (!emailRegex.test(email)) {
-                        Swal.fire({
-                    title: 'Gabim në Validim',
-                    text: 'Ju lutem jepni nje email valide.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    background: '#000000',
-                    confirmButtonColor: '#ff0000',
-                    iconColor: '#ff0000',
-                });
-                    
+                    Swal.fire({
+                        title: 'Gabim në Validim',
+                        text: 'Ju lutem jepni nje email valide.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        background: '#000000',
+                        confirmButtonColor: '#ff0000',
+                        iconColor: '#ff0000',
+                    });
                 } else if (password !== confirmPassword) {
                     Swal.fire({
-                    title: 'Gabim në Validim',
-                    text: 'Paswordet nuk perputhen.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    background: '#000000',
-                    confirmButtonColor: '#ff0000',
-                    iconColor: '#ff0000',
-                });
-                    
+                        title: 'Gabim në Validim',
+                        text: 'Paswordet nuk perputhen.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        background: '#000000',
+                        confirmButtonColor: '#ff0000',
+                        iconColor: '#ff0000',
+                    });
+                } else if (!termsCheckbox.checked) {
+                    Swal.fire({
+                        title: 'Gabim në Validim',
+                        text: 'Ju lutem pranojeni termat dhe kushtet.',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        background: '#000000',
+                        confirmButtonColor: '#ff0000',
+                        iconColor: '#ff0000',
+                    });
                 } else {
                     Swal.fire({
-                title: 'Suksess',
-                text: 'Ju u regjistruat me sukses.',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                background: '#000000',
-                confirmButtonColor: '#00ff00',
-                iconColor: '#00ff00',
-            });
-                    then(function () {
+                        title: 'Suksess',
+                        text: 'Ju u regjistruat me sukses.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        background: '#000000',
+                        confirmButtonColor: '#00ff00',
+                        iconColor: '#00ff00',
+                    }).then(function () {
                         window.location.href = 'Qasja.html';
                     });
                 }
             });
         });
     </script>
-    
-        
-
-    
-    
 </head>
 <body>
-    <body>
-        <video autoplay muted loop id="myVideo">
-            <source src="moon_-_44335 (1080p).mp4" type="video/mp4">
-        </video>
- 
+    <video autoplay muted loop id="myVideo">
+        <source src="moon_-_44335 (1080p).mp4" type="video/mp4">
+    </video>
+
     <div class="wrapper">
         <span>
-        <a href='Qasja.html'>&#8617</a>
-    </span>
+            <a href='Qasja.html'>&#8617</a>
+        </span>
         <br>
         <br>
-<br>
+        <br>
         
-            <div class="input-container">
-                <br>
-                <br>
-      <i class="fa fa-user icon"></i>
-      <input type="text"  name="email" placeholder="Email"required>
-      
-    <br>
-        <i class="fa fa-lock icon"></i>
-        <input type="password"  name="password" placeholder="Password"required>
-   <br>
-    <i class="fa fa-lock icon"></i>
-    <input type="password"  name="confirmPassword" placeholder="Confirm Password"required>
-    <br>
-    <label for="male"><i class="fa fa-male"></i> Male</label>
-    <input type="radio" id="male" name="gender" value="male" required>
-    
-    <label for="female"><i class="fa fa-female"></i> Female</label>
-    <input type="radio" id="female" name="gender" value="female" required>
-    
-    <button type="submit" id="myButton"><b>REGISTER</b></button>
+        <div class="input-container">
+            <br>
+            <br>
+            <i class="fa fa-user icon"></i>
+            <input type="text" name="email" placeholder="Email" required autocomplete="on">
+            <br>
+            <i class="fa fa-lock icon"></i>
+            <input type="password" name="password" placeholder="Password" required>
+            <br>
+            <i class="fa fa-lock icon"></i>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+            <br>
+            <label for="male"><i class="fa fa-male"></i> Male</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="female"><i class="fa fa-female"></i> Female</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <br>
+            
+            <label for="termsCheckbox">I agree to the <a href="#"  onclick="showTerms()">Terms and Conditions</a></label>
+            <input type="checkbox" id="termsCheckbox" required>
+            
+            <br>
+            <button type="submit" id="myButton"><b>REGISTER</b></button>
+        </div>
+    </div>
 
-</div>
-    
-    
-   
-        
+    <script>
+      function showTerms() {
+    Swal.fire({
+        title: 'Terms and Conditions',
+        html: `
+            <p>Qëllimi dhe Kufiri:<br>
+            Observatori pranon të vëzhgojë ngjarjen XYZ për qëllime studimore dhe nuk do të përdorë informacionin për qëllime tjera.</p>
 
-           
-   
+            <p>Qasja dhe Përdorimi:<br>
+            Observatori ka të drejtë të aksesojë informacionin në faqen e internetit XYZ dhe është i detyruar ta përdorë atë për qëllimet e vëzhgimit vetëm.</p>
+
+            <p>Konfidencialiteti:<br>
+            Observatori pranon të mbajë informacionin e përdorur konfidencial dhe nuk do ta ndajë atë me palë të treta pa lejen e pronarit të informacionit.</p>
+
+            <p>Kodi i Veprimit:<br>
+            Observatori do të respektojë etikën dhe rregullat e mirësjelljes gjatë vëzhgimit dhe nuk do të ndërmarrë veprime të paligjshme.</p>
+
+            <p>Pronësia Intelektuale:<br>
+            Të gjitha të drejtat mbi materiale dhe informacion të prodhuar gjatë vëzhgimit mbeten te pronari i faqes së internetit XYZ.</p>
+
+            <p>Privatësia:<br>
+            Observatori pranon të respektojë privatësinë e përdoruesve të faqes së internetit XYZ dhe nuk do të zbulojë informacion personal pa lejen e përdoruesve.</p>
+
+            <p>Kohëzgatitja dhe Përfundimi:<br>
+            Vëzhgimi do të zgjasë për periudhën e përcaktuar dhe mund të ndërpritet nëse ndodh ndonjë shkelje e kushteve dhe kushteve.</p>
+
+            <p>Përgjegjësia dhe Ndëshkimi:<br>
+            Observatori është i përgjegjshëm për respektimin e kushteve dhe kushteve dhe pranon të mbrohet nga çdo përgjegjësi ligjore.</p>
+
+            <p>Zgjidhja e Kontesteve:<br>
+            Çdo mosmarrëveshje do të zgjidhet përmes mediacionit në përputhje me ligjet dhe rregulloret aktuale.</p>
+
+            <p>Respektimi i Ligjeve:<br>
+            Observatori pranon të respektojë të gjitha ligjet dhe rregulloret në fuqi gjatë kohës së vëzhgimit.</p>
+        `,
+        confirmButtonText: 'OK',
+        background: '#000000',
+        confirmButtonColor: '#61dafb',
+        iconColor: '#61dafb',
+    });
+}
+
+    </script>
 </body>
 </html>

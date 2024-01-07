@@ -12,6 +12,12 @@
         body {
             box-shadow: none;
         }
+        swal2-input{
+            border-radius: 5px;
+            background-color: #000;
+            color: #ffffff;
+        
+        }
 
         header.scrolled {
             background-color: #000;
@@ -181,7 +187,7 @@
                 event.preventDefault();
                 Swal.fire({
                     title: 'Validation Error',
-                    text: getValidationErrorMessage(dayOfWeek),
+                    text: "Observatori eshte mbyllur",
                     icon: 'warning',
                     confirmButtonText: 'OK',
                 });
@@ -192,13 +198,16 @@
             showUserDetailsInput();
         }
     
-function showUserDetailsInput() {
+        function showUserDetailsInput() {
+    const captchaText = generateRandomString(5);
+
     Swal.fire({
         title: 'Vendosni Të Dhënat Tuaja',
         html:
-            '<input id="swal-input-name" class="swal2-input" placeholder="Emri">' +
-            '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri">' +
-            '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit">',
+            '<input id="swal-input-name" class="swal2-input" placeholder="Emri" autocomplete="given-name">' +
+            '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri" autocomplete="family-name">' +
+            '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit" autocomplete="tel">' +
+            '<input id="swal-input-captcha" class="swal2-input" style="font-family: Arial, sans-serif;" placeholder="CAPTCHA: ' + captchaText + '">',
         allowOutsideClick: false,
         allowEscapeKey: false,
         confirmButtonText: 'Dërgo',
@@ -209,11 +218,18 @@ function showUserDetailsInput() {
             confirmButton: 'custom-confirm-button',
         },
         preConfirm: function () {
-           
             const name = Swal.getPopup().querySelector('#swal-input-name').value;
             const surname = Swal.getPopup().querySelector('#swal-input-surname').value;
             const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
+            const captchaInput = Swal.getPopup().querySelector('#swal-input-captcha').value;
 
+            // Validate CAPTCHA
+            if (captchaInput !== captchaText) {
+                Swal.showValidationMessage('CAPTCHA incorrect. Please try again.');
+                return false;
+            }
+
+            // Validate other fields
             if (!name || !surname || !phone) {
                 Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
                 return false;
@@ -241,7 +257,6 @@ function showUserDetailsInput() {
         if (result.isConfirmed && result.value) {
             console.log(result.value);
 
-            
             document.body.style.boxShadow = 'none';
 
             Swal.fire({
@@ -255,6 +270,15 @@ function showUserDetailsInput() {
             });
         }
     });
+}
+
+function generateRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
 }
 
 
