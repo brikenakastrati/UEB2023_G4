@@ -19,7 +19,7 @@
       user-select: none;
       cursor: grab;
       transition: all 0.3s;
-      border-radius: 50%; /* Set border-radius for a round shape */
+      border-radius: 50%; 
     }
 
     #backToTopButton:hover span {
@@ -32,7 +32,7 @@
 <body>
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <button id="backToTopButton" class="btn rounded-circle d-none" draggable="true" style="background-color:white; color: black; border: 1px solid black;">
-    <span>&#9733; </span> Back
+    <span>&#9733; </span> 
   </button>
 
   <script>
@@ -67,9 +67,30 @@
         offsetX = offsetY = null;
       }
     });
+
+    //callback function
+document.addEventListener("DOMContentLoaded", function () {
+    // ... Kodi ekzistues ...
+
+    // Shto funksionin e ri për të trajtuar klikimin e butonit "backToTopButton"
+    function handleBackToTopButtonClick() {
+        alert("Ky buton ju dërgon lart në faqen e sipërme.");
+        // Mund të shtosh logjikën tuaj për të kthyer lart faqen këtu
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Gjej elementin e butonit
+    var backToTopButton = document.getElementById('backToTopButton');
+
+    // Regjistro ngjarjen e klikimit dhe lidh funksionin e krijuar më parë
+    backToTopButton.addEventListener('click', handleBackToTopButtonClick);
+
+   
+});
+
   </script>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
