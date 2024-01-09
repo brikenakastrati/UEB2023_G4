@@ -239,9 +239,16 @@ body, html {
   outline-color: rgba(25, 47, 87, 1); /* Change the color to a more solid one */
 }
 
-.myVideo {
-  margin: 20px 20px 20px 20px; /* top right bottom left */
+.video-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the videos within the container */
 }
+
+.myVideo {
+  margin: 20px; /* Apply 20px margin around each video */
+  max-width: 100%; /* Optionally set a maximum width for the videos */
+}
+
 
 .Text ul{
   list-style-type: circle;
