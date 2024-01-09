@@ -1,0 +1,86 @@
+*{
+    background-color: #000;
+    color: white;
+    background-attachment: fixed;
+
+}
+.custom-fieldset {
+    border: 2px solid rgba(25, 47, 87, 0.592);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: black; 
+    color: white; 
+}
+
+#myForm, #nameSurnameForm {
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow */
+    background: 
+         linear-gradient(130deg, #1d1d1d 0%, #000 50%); /* Right to left gradient */
+}
+
+
+input[type='submit'] {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: rgba(11, 60, 151, 0.592);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='submit']:focus,
+input[type='email']:focus,
+ #myButtoni:focus,
+ #occupation:focus, #age:focus {
+    outline: none;
+    border-color: rgba(11, 60, 151, 0.8);
+}
+
+input[type='text']:hover,
+input[type='submit']:hover, 
+input[type='email']:hover,
+#myButtoni:hover,
+#occupation:hover, #age:hover{
+    outline: none;
+    border-color: rgba(11, 60, 151, 0.8);
+}
+
+input[type='text'],
+input[type='submit'],
+input[type='email'], 
+#myButtoni,
+#occupation,
+#age{
+    padding: 10px;
+    margin-top: 10px;
+    background-color: black; 
+    color: white; 
+    border: 2px solid rgba(25, 47, 87, 0.592);
+    border-radius: 4px;
+    font-size: 16px;
+    background: 
+         linear-gradient(15deg,  #1d1d1d 0% 0%, #000 50%); /* Right to left gradient */
+}
+#resetButton {
+    display: none;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    bottom: 10px;
+  }
+
+  #resetButton:hover {
+    background-color: #2980b9;
+  }
