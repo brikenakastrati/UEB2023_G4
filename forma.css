@@ -68,8 +68,4 @@ input[type='email'],
     background: 
          linear-gradient(15deg,  #1d1d1d 0% 0%, #000 50%); /* Right to left gradient */
 }
-  }
-
-  #resetButton:hover {
-    background-color: #2980b9;
-  }
+  
