@@ -48,7 +48,7 @@ function butoniFazat() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var header = document.querySelector('header');
 
     function toggleHeaderBackground() {
@@ -56,4 +56,43 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.addEventListener('scroll', toggleHeaderBackground);
+});
+
+$(document).ready(function () {
+    function generateMeteor() {
+        const meteorElement = document.createElementNS("http://www.w3.org/2000/svg", "image");
+        meteorElement.setAttribute("class", "meteor");
+        meteorElement.setAttribute("width", "20");
+        meteorElement.setAttribute("height", "20");
+        meteorElement.setAttribute("x", Math.random() * window.innerWidth);
+        meteorElement.setAttribute("y", 0);
+        meteorElement.setAttribute("href", "metplease.png");
+        $('#meteors-container3').append(meteorElement);
+        moveMeteor(meteorElement);
+    }
+
+    function moveMeteor(meteorElement) {
+        const speed = 2 + Math.random() * 3;
+        const angle = (5 / 6) * Math.PI;
+        const deltaX = Math.cos(angle) * speed;
+        const deltaY = Math.sin(angle) * speed;
+
+        function move() {
+            const currentX = parseFloat(meteorElement.getAttribute("x"));
+            const currentY = parseFloat(meteorElement.getAttribute("y"));
+
+            meteorElement.setAttribute("x", currentX + deltaX);
+            meteorElement.setAttribute("y", currentY + deltaY);
+
+            if (currentY < window.innerHeight) {
+                requestAnimationFrame(move);
+            } else {
+                meteorElement.remove();
+            }
+        }
+
+        requestAnimationFrame(move);
+    }
+
+    setInterval(generateMeteor, 1000);
 });
