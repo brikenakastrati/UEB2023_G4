@@ -16,6 +16,7 @@
     background-image: url("vazhdimi.jpg");
 
 
+
 }
 
 .nebula {
@@ -87,80 +88,169 @@
     background: none;
     margin-top: 0;
 }
+
 @font-face {
     font-family: 'Montserrat';
-    src: url(Montserrat-VariableFont_wght.ttf) format('truetype');}
-    header {
-        background-color: transparent;
-        color: #fff;
-        padding: 5px; 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        width: 100%;
-        z-index: 2;
-        top: 0;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    header.scrolled { background-color: black; }
-
-    header img { width: 200px; height: auto; margin-right: 10px; }
-
-    nav { display: flex; align-items: center; transition: transform 0.3s ease-in-out; }
-
-    nav ul { list-style: none; padding: 0; display: flex; align-items: center; margin: 0; }
-
-    nav li { margin: 5px; position: relative; }
-
-    nav a {
-text-decoration: none;
-color: white;
-font-size: 14px;
-position: relative;
-font-family: 'Montserrat'; 
+    src: url(Montserrat-VariableFont_wght.ttf) format('truetype');
 }
-    nav a:hover { color: white; }
 
-    nav li::before, nav li::after, nav a::before, nav a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        background-color: white;
-        transition: all 0.3s ease-in-out;
-    }
+header {
+    background-color: transparent;
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    transition: background-color 0.3s ease-in-out;
+}
 
-    nav li::before, nav a::before { left: 0; }
+header.scrolled {
+    background-color: black;
+}
 
-    nav li::after, nav a::after { right: 0; }
+header img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
 
-    nav li:hover::before, nav a:hover::before, nav li:hover::after, nav a:hover::after {
-        width: 100%;
-        color: #fff;
-    }
+nav {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
 
-    footer {
-        background-color: black;
-        color: #fff;
-        padding: 5px; 
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-family: 'Montserrat';
-    }
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
 
-    footer hr { border-top: 1px solid white; margin: 10px 0; }
+nav li {
+    margin: 5px;
+    position: relative;
+}
 
-    footer a {
-        display: inline-block;
-        margin: 5px;
-        border: 1px solid white;
-        border-radius: 5px;
-        transition: background-color 0.3s ease-in-out;
-    }
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    font-family: 'Montserrat';
+}
 
-    footer a img { width: 37px; height: 37px; transition: transform 0.3s ease-in-out; }
+nav a:hover {
+    color: white;
+}
 
-    footer a:hover img { transform: scale(1.2); }
+nav li::before,
+nav li::after,
+nav a::before,
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+nav li::before,
+nav a::before {
+    left: 0;
+}
+
+nav li::after,
+nav a::after {
+    right: 0;
+}
+
+nav li:hover::before,
+nav a:hover::before,
+nav li:hover::after,
+nav a:hover::after {
+    width: 100%;
+    color: #fff;
+}
+
+footer {
+    background-color: black;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat';
+}
+
+footer hr {
+    border-top: 1px solid white;
+    margin: 10px 0;
+}
+
+footer a {
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+footer a img {
+    width: 37px;
+    height: 37px;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer a:hover img {
+    transform: scale(1.2);
+}
+
+.custom-table {
+
+
+    color: white;
+    background-color: black;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid white;
+}
+
+.klasaTabela {
+    background-color: black;
+    height: 700px;
+}
+
+.astrologjia::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid white;
+    margin-left: 10px;
+}
+
+table {
+    border-spacing: 10px;
+
+}
+
+td {
+    padding: 30px;
+
+}
+
+
+.astrologjia {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    background-color: black;
+}
