@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Montserrat'!important;
+  src: url(Montserrat-VariableFont_wght.ttf) format('truetype');
+   
+}
+
+
 body {
   
   background-color: #000000;

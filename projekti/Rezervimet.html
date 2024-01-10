@@ -132,15 +132,12 @@
     </div>
     <script>
        
-        function formatTimeInput() {
-            document.getElementById('todayDate').value = new Date().toISOString().split('T')[0];
-    
-            var inputTime = document.getElementById('Koha');
-            var timeValue = inputTime.value;
-            var formattedTime = timeValue.substring(0, 2) + ':00';
-            inputTime.value = formattedTime;
-        }
-    
+       function formatTimeInput() {
+    var inputTime = document.getElementById('Koha');
+    var timeValue = inputTime.value;
+    var formattedTime = timeValue.substring(0, 2) + ':00';
+    inputTime.value = formattedTime;
+}
     
         function validateReservation() {
             document.body.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
@@ -164,20 +161,22 @@
                 });
                 return;
             }
-    
-            if (selectedDate < currentDate) {
-                Swal.fire({
-                    title: 'Gabim në Validim',
-                    text: 'Duhet të kryeni rezervimin të paktën një ditë para datës së dëshiruar.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                    background: '#000000',
-                    confirmButtonColor: '#ff0000',
-                    iconColor: '#ff0000',
-                });
-                return;
-            }
- 
+            var selectedDateTime = new Date(inputDate + 'T' + inputTime);
+var currentDate = new Date();
+currentDate.setDate(currentDate.getDate() + 1);
+
+if (selectedDateTime < currentDate) {
+    Swal.fire({
+        title: 'Gabim në Validim',
+        text: 'Duhet të kryeni rezervimin të paktën një ditë para datës së dëshiruar.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        background: '#000000',
+        confirmButtonColor: '#ff0000',
+        iconColor: '#ff0000',
+    });
+    return;
+}
             var dayOfWeek = selectedDate.getDay();
             var selectedHour = selectedDate.getHours();
     
@@ -199,87 +198,101 @@
         }
     
         function showUserDetailsInput() {
-    const captchaText = generateRandomString(5);
+        const generatedId = generateRandomNumericId(8);
+        const captchaText = generateRandomString(4);
 
-    Swal.fire({
-        title: 'Vendosni Të Dhënat Tuaja',
-        html:
-            '<input id="swal-input-name" class="swal2-input" placeholder="Emri" autocomplete="given-name">' +
-            '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri" autocomplete="family-name">' +
-            '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit" autocomplete="tel">' +
-            '<input id="swal-input-captcha" class="swal2-input" style="font-family: Arial, sans-serif;" placeholder="CAPTCHA: ' + captchaText + '">',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        confirmButtonText: 'Dërgo',
-        background: '#000000',
-        confirmButtonColor: '#00ff00',
-        iconColor: '#00ff00',
-        customClass: {
-            confirmButton: 'custom-confirm-button',
-        },
-        preConfirm: function () {
-            const name = Swal.getPopup().querySelector('#swal-input-name').value;
-            const surname = Swal.getPopup().querySelector('#swal-input-surname').value;
-            const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
-            const captchaInput = Swal.getPopup().querySelector('#swal-input-captcha').value;
+        Swal.fire({
+            title: 'Vendosni Të Dhënat Tuaja',
+            html:
+                '<input id="swal-input-name" class="swal2-input" placeholder="Emri" autocomplete="given-name">' +
+                '<input id="swal-input-surname" class="swal2-input" placeholder="Mbiemri" autocomplete="family-name">' +
+                '<input id="swal-input-phone" class="swal2-input" placeholder="Numri i Telefonit" autocomplete="tel">' +
+                '<input id="swal-input-captcha" class="swal2-input" style="font-family: Arial, sans-serif;" placeholder="CAPTCHA: ' +
+                captchaText +
+                '">',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'Dërgo',
+            background: '#000000',
+            confirmButtonColor: '#00ff00',
+            iconColor: '#00ff00',
+            customClass: {
+                confirmButton: 'custom-confirm-button',
+            },
+            preConfirm: function () {
+                const name = Swal.getPopup().querySelector('#swal-input-name').value.trim();
+                const surname = Swal.getPopup().querySelector('#swal-input-surname').value.trim();
 
-            // Validate CAPTCHA
-            if (captchaInput !== captchaText) {
-                Swal.showValidationMessage('CAPTCHA incorrect. Please try again.');
-                return false;
+                const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
+                const captchaInput = Swal.getPopup().querySelector('#swal-input-captcha').value;
+
+                // Validate CAPTCHA
+                if (captchaInput !== captchaText) {
+                    Swal.showValidationMessage('CAPTCHA incorrect. Please try again.');
+                    return false;
+                }
+
+                if (!name || !surname || !phone) {
+                    Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
+                    return false;
+                }
+
+                const nameRegex = /^[a-zA-Z]{3,}$/;
+                const surnameRegex = /^[a-zA-Z]{3,}$/;
+
+                if (!nameRegex.test(name) || !surnameRegex.test(surname)) {
+                    Swal.showValidationMessage(
+                        'Emri dhe mbiemri duhet të përmbajnë vetëm shkronja dhe të jenë të paktën 3 shkronjat.'
+                    );
+                    return false;
+                }
+
+                const phoneNumberRegex = /^\+\d{10,11}$/;
+
+                if (!phoneNumberRegex.test(phone)) {
+                    Swal.showValidationMessage('Numri i telefonit i pavlefshëm.');
+                    return false;
+                }
+
+                return { name: name, surname: surname, phone: phone, id: generatedId };
+            },
+            allowEnterKey: true,
+        }).then((result) => {
+            if (result.isConfirmed && result.value) {
+                console.log(result.value);
+
+                document.body.style.boxShadow = 'none';
+
+                Swal.fire({
+                    title: 'Rezervimi është kryer me sukses!',
+                    text: 'Rezervimi juaj është dërguar me sukses. ID: ' + generatedId,
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    background: '#000000',
+                    confirmButtonColor: '#00ff00',
+                    iconColor: '#00ff00',
+                });
             }
-
-            // Validate other fields
-            if (!name || !surname || !phone) {
-                Swal.showValidationMessage('Ju lutem plotësoni të gjitha fushat.');
-                return false;
-            }
-
-            const nameRegex = /^[a-zA-Z]{3,}$/;
-            const surnameRegex = /^[a-zA-Z]{3,}$/;
-
-            if (!nameRegex.test(name) || !surnameRegex.test(surname)) {
-                Swal.showValidationMessage('Emri dhe mbiemri duhet të përmbajnë vetëm shkronja dhe të jenë të paktën 3 shkronjat.');
-                return false;
-            }
-
-            const phoneNumberRegex = /^\+\d{10,11}$/;
-
-            if (!phoneNumberRegex.test(phone)) {
-                Swal.showValidationMessage('Numri i telefonit i pavlefshëm.');
-                return false;
-            }
-
-            return { name: name, surname: surname, phone: phone };
-        },
-        allowEnterKey: false,
-    }).then((result) => {
-        if (result.isConfirmed && result.value) {
-            console.log(result.value);
-
-            document.body.style.boxShadow = 'none';
-
-            Swal.fire({
-                title: 'Rezervimi është kryer me sukses!',
-                text: 'Rezervimi juaj është dërguar me sukses.',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                background: '#000000',
-                confirmButtonColor: '#00ff00',
-                iconColor: '#00ff00',
-            });
-        }
-    });
-}
-
-function generateRandomString(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
+        });
     }
-    return result;
-}
+
+    function generateRandomNumericId(length) {
+        const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+        }
+        return result;
+    }
+
+    function generateRandomString(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
 
 
         window.addEventListener('scroll', function () {
