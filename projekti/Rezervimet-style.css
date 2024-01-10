@@ -1,12 +1,16 @@
-@font-face {
-  font-family: 'Montserrat'!important;
-  src: url(Montserrat-VariableFont_wght.ttf) format('truetype');
-   
-}
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style:normal;
+    
+  }
+
 
 
 body {
-  
+  font-family: 'Montserrat'; 
   background-color: #000000;
   background-image: url('download.png');
   background-size: cover;
@@ -16,6 +20,7 @@ body {
 }
 
 header {
+  font-family: 'Montserrat'; 
   display: flex;
   background-color: transparent;
   margin-bottom: 6%;
@@ -31,7 +36,7 @@ img {
 
 
 .wrapper {
- 
+  font-family: 'Montserrat'; 
   margin-left: 30%;
   margin-right: auto;
   margin-bottom:4%;
@@ -46,7 +51,7 @@ img {
 
 input[type="date"]{
   margin: 20px;
-  font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+  font-family: 'Montserrat'; 
   background-color: #00000082;
   color: #e4dddd;
   border: 1px solid #ffffff;
@@ -62,7 +67,7 @@ input[type="date"]{
 input[type="time"] {
   
   margin: 20px;
-  font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+  font-family: 'Montserrat'; 
   background-color: #00000031;
   color: #f7f7f7;
   border: 1px solid #ffffff;
@@ -82,10 +87,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="time"]::-webkit-inner-spin-button {
   filter: invert(1); 
 }
-input[type="time"]::-inner-spin-button {
+input[type="time"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
-
 
 
 input[type="number"]:hover,
@@ -97,7 +101,7 @@ input[type="number"]:focus {
 label {
   color: #000000;
   margin-left: 15px;
-  font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  font-family: 'Montserrat'; 
 }
 
 #registerButton {
@@ -116,7 +120,7 @@ button {
   margin-right: 30px;
   margin-bottom: 15px;
   border-radius: 15px;
-  font-family: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  font-family: 'Montserrat'; 
 }
 
 dl {
@@ -133,7 +137,7 @@ hr {
   margin-bottom: 3%;
 }
 h1 {
- font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Montserrat'; 
   color: #fbfbfbd1;
   margin-left: 6%;
   margin-right:6%;
@@ -141,26 +145,15 @@ h1 {
 }
 
 
-.map-container {
-  opacity:0.7;
-  width: 80%;
-  height: 40vh; 
-  margin-left:10%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.114);
-}
 
-
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 .container {
-  height: 35%;
+ font-size: medium;
+  font-family: 'Montserrat'; 
+  height: 45%;
   width:40%;
   margin-right:40px;
   margin-left: 40px;
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 6px 6px 10px rgb(0, 0, 0);
@@ -168,12 +161,14 @@ h1 {
 }
 
 .container1 {
-  height: 35%;
-  margin-top: -20%;
+  font-size: smaller;
+  font-family: 'Montserrat'; 
+  height: 45%;
+  margin-top:  -25%;
   width:40%;
   margin-right:40px;
   margin-left: 50%;
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 6px 6px 10px rgb(0, 0, 0);
@@ -183,13 +178,14 @@ h1 {
 
 
 p {
+  font-family: 'Montserrat'; 
   color: #dfdfdf;
   line-height: 2;
   text-align: justify;
 }
 
 ol {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Montserrat'; 
   font-size: medium;
   color: #ffffff;
   padding-left: 20px;
@@ -197,16 +193,16 @@ ol {
 }
 
 ol li {
+  font-family: 'Montserrat'; 
   color: #e4dddd;
   margin-bottom: 10px;
   
 }
 
 
-/* Stilizimi i headerit */
+
 header {
-  font-family:'Times New Roman', Times, serif;
-  
+  font-family: 'Montserrat'; 
   height:7%;
   background-color: transparent;
   color: white;
@@ -221,7 +217,6 @@ header {
   transition: background-color 0.3s ease-in-out;
 }
 
-/* Pas scrolling headeri merr ngjyren e prapavijes te zeze */
 header.scrolled {
   background-color: black;
 }
@@ -301,7 +296,7 @@ nav a:hover::after {
 
 /* Stilizimi i footerit */
 footer {
-  
+  font-family: 'Montserrat'; 
   background-color: black;
   color: #ffffff;
   padding: 5px;
@@ -315,6 +310,7 @@ footer hr {
 }
 
 footer a {
+  font-family: 'Montserrat'; 
   display: inline-block;
   margin: 5px;
   margin-right: 1.5%;

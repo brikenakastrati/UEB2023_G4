@@ -92,11 +92,11 @@
 
     <form id="reservationForm">
         <div class="wrapper">
-            <label for="Data">Data:</label>
+            <label for="Data"><b>Data:</b></label>
             <input type="date" id="todayDate" value="">
 
             <br><br>
-            <label for="Koha">Koha:</label>
+            <label for="Koha"><b>Koha:</b></label>
             <input type="time" id="Koha" name="Koha" step="3600" oninput="formatTimeInput()">
             <button type="button" id="registerButton" onclick="validateReservation()">Rezervo</button>
         </div>
@@ -130,13 +130,15 @@
     <li>Rezervimet duhet të bëhen 1 ditë paraprakisht.</li>
     <br>
     <li>Gjatë verifikimit, sigurohuni që të dhënat e dhëna janë valide.</li>
+    <br>
+    <li>Rezervimi bëhet vetëm ne orë te plota.</li>
+    <br>
+    <li>Numrat janë valid vetëm nëse kan kodet ndërkombëtare të telefonatës.</li>
     
 </ol>
 </div>
-<div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s"
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+<div class="powr-donation-popup" id="f05d3af6_1704915069"></div><script src="https://www.powr.io/powr.js?platform=html"></script>
+
     <script>
        
        function formatTimeInput() {
@@ -233,7 +235,6 @@ if (selectedDateTime < currentDate) {
                 const phone = Swal.getPopup().querySelector('#swal-input-phone').value;
                 const captchaInput = Swal.getPopup().querySelector('#swal-input-captcha').value;
 
-                // Validate CAPTCHA
                 if (captchaInput !== captchaText) {
                     Swal.showValidationMessage('CAPTCHA incorrect. Please try again.');
                     return false;
