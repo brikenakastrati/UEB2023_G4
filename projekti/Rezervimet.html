@@ -8,6 +8,7 @@
     <link rel="icon" href="tl.png" type="image/x-icon">
     <link rel="stylesheet" href="Rezervimet-style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         body {
             box-shadow: none;
@@ -70,7 +71,13 @@
 
 <body>
     <header>
-        <img src="ObvP.png" alt="Observatory of Prishtina">
+        <div id="myElement">
+            <audio autoplay id="myAudio">
+                <source src="Original Playstation 2 Intro.mp3" type="audio/mp3">
+               
+            </audio>
+    </div>
+    <img src="ObvP.png" alt="Observatory of Prishtina">
         <nav>
             <ul>
                 <li><a href="#rezervimi">Rezervimi</a></li>
@@ -126,10 +133,10 @@
     
 </ol>
 </div>
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+<div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.9976914400527!2d21.155981676647606!3d42.66140431600961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549fb532920b27%3A0x2c5e9b4de8e8dd8!2sAstronomy%20Club%20of%20Kosova%20%2F%20Prishtina%20Observatory!5e0!3m2!1sen!2s!4v1703866312824!5m2!1sen!2s"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
     <script>
        
        function formatTimeInput() {
@@ -311,7 +318,16 @@ if (selectedDateTime < currentDate) {
   
         document.getElementById('registerButton').addEventListener('click', validateReservation);
     </script>
-    
+    <script>
+        $("#myElement").slideUp(2000, function() {
+          
+        
+        });
+      </script>
+      <script>
+        var myAudio = document.getElementById("myAudio");
+        myAudio.volume = 0.1;
+    </script>
     
     <footer>
         <h4>Observatori i Prishtinës</h4>
@@ -329,7 +345,7 @@ if (selectedDateTime < currentDate) {
             <img src="fb.jpg" alt="facebooklogo">
         </a>
     </footer>
-
+  
   
 
 </body>
