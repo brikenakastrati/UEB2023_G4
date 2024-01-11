@@ -100,7 +100,7 @@
 </head>
 <body><br><br>
     <video autoplay muted loop width="1920" height="1080"  id="myVideo">
-        <source src="moon_-_44335 (1080p).mp4" type="video/mp4">
+        <source src="moon.mp4" type="video/mp4">
     </video>
     <audio autoplay id="myAudio">
         <source src="Space Ambient Sleep Music.mp3" type="audio/mp3">
@@ -126,10 +126,12 @@
             <i class="fa fa-lock icon"></i>
             <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
             <br>
-            <label for="male"><i class="fa fa-male"></i> Male</label>
-            <input type="radio" id="male" name="gender" value="male" required>
-            <label for="female"><i class="fa fa-female"></i> Female</label>
-            <input type="radio" id="female" name="gender" value="female" required>
+            <div class="radio-container">
+                <label for="male"><i class="fa fa-male"></i> Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="female"><i class="fa fa-female"></i> Female</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+            </div>
             <br>
             
             <label for="termsCheckbox">I agree to the <a href="#"  onclick="showTerms()">Terms and Conditions</a></label>

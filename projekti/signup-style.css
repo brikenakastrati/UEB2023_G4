@@ -41,6 +41,7 @@ body {
 
 
 #myButton {
+  margin-top: -5%;
   font-family: 'Montserrat'; 
   background-color: rgba(255, 255, 255, 0.521);
   margin-left: 14%;
@@ -115,11 +116,13 @@ input[type="text"],input[type="password"],input[type="submit"]{
   color: #ffffff;
 }
 #a1{
+  font-family: 'Montserrat'; 
   color: #000000fd; 
   font-size:xx-large;
   transition: color 0.3s ease;  
 }
 a {
+  font-family: 'Montserrat'; 
   font-size: small;
   color: #000000; 
   
@@ -149,11 +152,7 @@ img{
   
 }
 
-header img {
-    width: 200px; 
-    height: auto;
-    margin-right: 10px;
-}
+
 
 .left-span {
   font-size: 30px;
@@ -161,7 +160,7 @@ header img {
 }
 i{
   margin-bottom: -25px;
-  margin-left: 10px;
+  margin-left: 15px;
   color: rgb(0, 0, 0);
 }
 
@@ -172,9 +171,9 @@ input::placeholder {
 
 }
 input[type="radio"]{
-  margin-top:-15px;
-  margin-bottom:10px;
-  margin-left: 85px;
+  margin-top:0px;
+  font-family: 'Montserrat'; 
+  margin-left: 10px;
   width: 13px;
   height: 13px;
   border: 2px solid #ffffff;
@@ -186,9 +185,9 @@ input[type="radio"]{
 }
 
 input[type="checkbox"]{
-  margin: top -13px;
-  margin-bottom:10px;
-  margin-left: 245px;
+  margin-top:-13px;
+  margin-bottom:20px;
+  margin-left: 265px;
   width: 13px;
   height: 13px;
   border: 2px solid #ffffff;
@@ -200,9 +199,14 @@ input[type="checkbox"]{
 }
 
 label {
-  margin-left:10px ;
+  margin-left:25px ;
   font-size: small;
   display: inline-block;
   font-family: 'Montserrat'; 
   color: #000000;
 }
+.radio-container {
+  display: flex;
+  align-items: center;
+}
+
