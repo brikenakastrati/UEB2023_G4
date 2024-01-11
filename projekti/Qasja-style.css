@@ -1,56 +1,56 @@
 @font-face {
   font-family: 'Montserrat';
   src: url(Montserrat-VariableFont_wght.ttf) format('truetype');
-   
 }
 
 body {
- 
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh; 
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat'; 
+  font-family: 'Montserrat';
   color: #333;
 }
-#myVideo{
-  position: absolute;
+
+video {
+  position: fixed;
   top: 0;
   left: 0;
-  min-width: 90%;
-  min-height: 90%;
-  z-index:-100;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
+.content {
+  position: relative;
+  z-index: 1; 
+}
 
 .wrapper {
   align-items: center;
   justify-content: center;
   background: transparent;
   height: auto;
-  width: 300px; 
+  width: 300px;
   margin: 5% auto;
   padding: 5%;
   border-radius: 20px;
- 
-  
 }
 
-
 #myButton {
-  font-family: 'Montserrat'; 
+  font-family: 'Montserrat';
   background-color: rgba(255, 255, 255, 0.521);
   margin-left: 17%;
   color: rgb(0, 0, 0);
   padding: 7px;
   font-size: 13px;
-  border-radius: 15PX;
+  border-radius: 15px; 
   width: 74%;
 }
 
-
-button:hover{
+button:hover {
   background-color: #383636;
 }
 
@@ -67,9 +67,6 @@ button:hover{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
-
 @media only screen and (max-width: 768px) {
   .wrapper {
     width: 90%;
@@ -85,107 +82,96 @@ button:hover{
   }
 }
 
-
-
-
 .input-container {
-  font-family: 'Montserrat'; 
+  font-family: 'Montserrat';
   font-size: medium;
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-bottom: 15px; 
-  margin-left: 25px; 
- 
+  margin-bottom: 15px;
+  margin-left: 25px;
 }
 
 label {
-  
   margin-left: 30px;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
   color: #ffffff;
 }
 
 input {
   align-items: center;
-  font-family: 'Montserrat'; 
+  font-family: 'Montserrat';
   background: rgba(0, 0, 0, 0.342);
-  width: 70%; 
+  width: 70%;
   padding: 10px;
   margin: 0 auto;
   border: 1px solid #000000;
   border-radius: 4px;
   color: #ffffff;
 }
-#a1{
-  color: #fffffffd; 
-  
-  transition: color 0.3s ease;  
-}
-#a{
-  margin-left: 95%;
-  color: #ffffff; 
-  
-  transition: color 0.3s ease;  
 
+#a1 {
+  color: #fffffffd;
+  transition: color 0.3s ease;
 }
+
+#a {
+  margin-left: 95%;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
 a {
-  
-  color: #ffffff; 
-  
-  transition: color 0.3s ease;  
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #90c1da; 
+  color: #90c1da;
 }
 
-
-  .styled-image1 {
+.styled-image1 {
   margin-left: 20%;
-  }
-  .styled-image2 {
-   
-    width: 40PX;
-    height: 40px; 
-   
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
- 
-img{
-  margin-top:45px;
-  margin-right:55px;
-  margin-left:40px;
-  
-  
+}
+
+.styled-image2 {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  margin-top: 45px;
+  margin-right: 55px;
+  margin-left: 40px;
 }
 
 header img {
-    width: 200px; 
-    height: auto;
-    margin-right: 10px;
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
 }
 
 .left-span {
   font-size: 30px;
   text-align: left;
 }
-i{
-  
+
+i {
   margin-bottom: -25px;
   margin-left: 0px;
   color: rgb(255, 255, 255);
 }
-p{
-  color: #ffffff;
-  font-size:small;
-  margin-left: 22.5%;
-  font-style: italic; 
-  
-  
-}input::placeholder {
-  color: #ffffff; 
-  font-style: italic; 
 
+p {
+  color: #ffffff;
+  font-size: small;
+  margin-left: 22.5%;
+  font-style: italic;
+}
+
+input::placeholder {
+  color: #ffffff;
+  font-style: italic;
 }

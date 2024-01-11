@@ -259,7 +259,7 @@ nav a:hover {
   color: white;
 }
 
-/* Add the following styles for the underline effect */
+
 nav li::before,
 nav li::after,
 nav a::before,
@@ -291,10 +291,10 @@ nav a:hover::after {
   color: #fff;
 }
 
-/* Placeholder content */
 
 
-/* Stilizimi i footerit */
+
+
 footer {
   font-family: 'Montserrat'; 
   background-color: black;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <style>
-        /* Add your custom styles here */
+       
         .swal2-popup {
             background-color: #000000 !important;
             color: #fff !important;
@@ -29,8 +30,11 @@
             color: #fff !important;
             background-color: #61dafb !important;
         }
+        
+     
+
     </style>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('myButton').addEventListener('click', function () {
@@ -40,83 +44,73 @@
                 var termsCheckbox = document.getElementById('termsCheckbox');
 
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                var passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
                 if (email.trim() === '' || password.trim() === '') {
-                    Swal.fire({
-                        title: 'Gabim në Validim',
-                        text: 'Plotsoni te gjitha fushat.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        background: '#000000',
-                        confirmButtonColor: '#ff0000',
-                        iconColor: '#ff0000',
-                    });
+                    showAlert('Gabim në Validim', 'Plotsoni te gjitha fushat.');
                 } else if (!emailRegex.test(email)) {
-                    Swal.fire({
-                        title: 'Gabim në Validim',
-                        text: 'Ju lutem jepni nje email valide.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        background: '#000000',
-                        confirmButtonColor: '#ff0000',
-                        iconColor: '#ff0000',
-                    });
+                    showAlert('Gabim në Validim', 'Ju lutem jepni nje email valide.');
+                } else if (!passRegex.test(password)) {
+                    showAlert('Gabim në Validim', 'Paswordi nuk është valid.', '<p>Te paktën një shkronjë të vogël<br>' +
+                        'Te paktën një shkronjë të madhe<br>' +
+                        'Te paktën një numër<br>' +
+                        'Vetëm shkronja dhe numra<br>' +
+                        'Gjatësia te paktën 8 karaktere</p>');
                 } else if (password !== confirmPassword) {
-                    Swal.fire({
-                        title: 'Gabim në Validim',
-                        text: 'Paswordet nuk perputhen.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        background: '#000000',
-                        confirmButtonColor: '#ff0000',
-                        iconColor: '#ff0000',
-                    });
+                    showAlert('Gabim në Validim', 'Paswordet nuk perputhen.');
                 } else if (!termsCheckbox.checked) {
-                    Swal.fire({
-                        title: 'Gabim në Validim',
-                        text: 'Ju lutem pranojeni termat dhe kushtet.',
-                        icon: 'warning',
-                        confirmButtonText: 'OK',
-                        background: '#000000',
-                        confirmButtonColor: '#ff0000',
-                        iconColor: '#ff0000',
-                    });
+                    showAlert('Gabim në Validim', 'Ju lutem pranojeni termat dhe kushtet.');
                 } else {
-                    Swal.fire({
-                        title: 'Suksess',
-                        text: 'Ju u regjistruat me sukses.',
-                        icon: 'success',
-                        confirmButtonText: 'OK',
-                        background: '#000000',
-                        confirmButtonColor: '#00ff00',
-                        iconColor: '#00ff00',
-                    }).then(function () {
-                        window.location.href = 'Qasja.html';
-                    });
+                    showSuccess('Suksess', 'Ju u regjistruat me sukses.', 'Qasja.html');
                 }
             });
         });
+
+        function showAlert(title, text, html = '') {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                background: '#000000',
+                confirmButtonColor: '#ff0000',
+                iconColor: '#ff0000',
+                html: html
+            });
+        }
+
+        function showSuccess(title, text, redirectUrl) {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: 'success',
+                confirmButtonText: 'OK',
+                background: '#000000',
+                confirmButtonColor: '#00ff00',
+                iconColor: '#00ff00'
+            }).then(function () {
+                window.location.href = redirectUrl;
+            });
+        }
     </script>
 </head>
-<body><br><br>
-    <video autoplay muted loop width="1920" height="1080"  id="myVideo">
+
+<body>
+    <br><br>
+    <video autoplay muted loop width="1920" height="1080" id="myVideo">
         <source src="moon.mp4" type="video/mp4">
     </video>
     <audio autoplay id="myAudio">
         <source src="Space Ambient Sleep Music.mp3" type="audio/mp3">
-        Your browser does not support the audio elementInstrumental Music  Relaxing Cinematic Piano.mp3.
+        Your browser does not support the audio elementInstrumental Music Relaxing Cinematic Piano.mp3.
     </audio>
     <div class="wrapper">
         <span>
             <a href='Qasja.html' id="a1">&#8617</a>
         </span>
-        <br>
-        <br>
-        <br>
-        
+        <br><br><br>
         <div class="input-container">
-            <br>
-            <br>
+            <br><br>
             <i class="fa fa-user icon"></i>
             <input type="text" name="email" placeholder="Email" required autocomplete="on">
             <br>
@@ -133,20 +127,20 @@
                 <input type="radio" id="female" name="gender" value="female" required>
             </div>
             <br>
-            
-            <label for="termsCheckbox">I agree to the <a href="#"  onclick="showTerms()">Terms and Conditions</a></label>
+
+            <label for="termsCheckbox">I agree to the <a href="#" onclick="showTerms()">Terms and Conditions</a></label>
             <input type="checkbox" id="termsCheckbox" required>
-            
+
             <br>
             <button type="submit" id="myButton"><b>REGISTER</b></button>
         </div>
     </div>
 
     <script>
-      function showTerms() {
-    Swal.fire({
-        title: 'Terms and Conditions',
-        html: `
+        function showTerms() {
+            Swal.fire({
+                title: 'Terms and Conditions',
+                html: `
             <p>Qëllimi dhe Kufiri:<br>
             Observatori pranon të vëzhgojë ngjarjen XYZ për qëllime studimore dhe nuk do të përdorë informacionin për qëllime tjera.</p>
 
@@ -177,26 +171,23 @@
             <p>Respektimi i Ligjeve:<br>
             Observatori pranon të respektojë të gjitha ligjet dhe rregulloret në fuqi gjatë kohës së vëzhgimit.</p>
         `,
-        confirmButtonText: 'OK',
-        background: '#000000',
-        confirmButtonColor: '#61dafb',
-        iconColor: '#61dafb',
-    });
-}
+                confirmButtonText: 'OK',
+                background: '#000000',
+                confirmButtonColor: '#61dafb',
+                iconColor: '#61dafb',
+            });
+        }
 
     </script>
     <script>
-   
         var myAudio = document.getElementById("myAudio");
-    
         myAudio.volume = 0.015;
     </script>
-     <script>
-        $(document).ready(function(){
+    <script>
+        $(document).ready(function () {
             $(".input-container").hide(0).delay(1000).show(2000);
         });
-       
     </script>
-    
 </body>
+
 </html>

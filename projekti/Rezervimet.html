@@ -103,7 +103,7 @@
             <button type="button" id="registerButton" onclick="validateReservation()">Rezervo</button>
         </div>
     </form>
-
+<article>
     <div class="container">
         <h1>Exploro universin ne observatorin tonë</h1>
         <ol>
@@ -139,6 +139,7 @@
     
 </ol>
 </div>
+</article>
 
     <script>
        
@@ -190,18 +191,37 @@ if (selectedDateTime < currentDate) {
             var dayOfWeek = selectedDate.getDay();
             var selectedHour = selectedDate.getHours();
     
-            if ((dayOfWeek >= 2 && dayOfWeek <= 5 && (selectedHour < 10 || selectedHour > 19)) ||
-                ((dayOfWeek === 0 || dayOfWeek === 6) && (selectedHour < 11 || selectedHour > 19)) ||
-                (dayOfWeek === 1)) {
-                event.preventDefault();
-                Swal.fire({
-                    title: 'Validation Error',
-                    text: "Observatori eshte mbyllur",
-                    icon: 'warning',
-                    confirmButtonText: 'OK',
-                });
-                return;
-            }
+            switch (dayOfWeek) {
+    case 0:
+    case 6:
+        if (selectedHour < 11 || selectedHour > 19) {
+            handleValidation();
+        }
+        break;
+    case 1:
+        handleValidation();
+        break;
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        if (selectedHour < 10 || selectedHour > 19) {
+            handleValidation();
+        }
+        break;
+    default:
+       
+}
+function handleValidation() {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Validation Error',
+        text: "Observatori eshte mbyllur",
+        icon: 'warning',
+        confirmButtonText: 'OK',
+    });
+    return;
+}
     
             
             showUserDetailsInput();
@@ -285,14 +305,24 @@ if (selectedDateTime < currentDate) {
         });
     }
 
+   
+       
     function generateRandomNumericId(length) {
-        const numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-        }
-        return result;
-    }
+    const numericCharacters = ['0', '2', '4', '6', '8', '10', '12', '14', '16', '18'];
+
+    
+    const mappedAndFiltered = numericCharacters
+        .map(char => Number(char) * 2) 
+        .filter(result => result % 2 === 0); 
+
+   
+    const result = Array.from({ length }, () => mappedAndFiltered[Math.floor(Math.random() * mappedAndFiltered.length)])
+        .reduce((acc, char) => acc + char, '');
+
+    return result;
+}
+
+
 
     function generateRandomString(length) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
