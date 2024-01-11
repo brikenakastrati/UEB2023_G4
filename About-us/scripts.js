@@ -3,35 +3,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
 
-  // Append overlay to the body
   document.body.appendChild(overlay);
 
   let popUpShown = false;
 
+
+  // Section show pas scroll ne page 
   window.addEventListener("scroll", function () {
       const scrollPosition = window.scrollY;
 
-      if (scrollPosition > 100 && !popUpShown) {
-          newsletterSection.style.display = "block"; // Show the section
+      if (scrollPosition > 1900 && !popUpShown) {
+          newsletterSection.style.display = "block"; 
           newsletterSection.classList.add("pop-up");
           overlay.classList.add("show-overlay");
-          popUpShown = true; // Set the flag to true once the pop-up is shown
+          popUpShown = true; 
       }
   });
 });
 
-function submitForm() {
-  // Add your form submission logic here
 
-  // Close the pop-up after 2 seconds
+// Submit Button Clicked, wait time pas klikimit 
+function submitForm() {
+  
   setTimeout(closePopup, 2000);
 }
 
+
+// Buttoni Close te window 
 function closePopup() {
   const newsletterSection = document.getElementById("newsletter-section");
   const overlay = document.querySelector(".overlay");
 
-  newsletterSection.style.display = "none"; // Hide the section
+  newsletterSection.style.display = "none"; 
   newsletterSection.classList.remove("pop-up");
   overlay.classList.remove("show-overlay");
 }
