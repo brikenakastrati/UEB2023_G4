@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,266 +7,39 @@
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="homepage.css">
  
-  
-   
-    
-    <style>
+ <script>
 
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url(Montserrat-VariableFont_wght.ttf) format('truetype');
-   
-}
-
-body {
-    height: 100%;
-    margin-left: 0;
-    overflow-x: hidden;
-    position: relative;
-    background-color: black;
-}
-
-header {
-    background-color: transparent;
-    color: #fff;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    top: 0;
-    transition: background-color 0.3s ease-in-out;
-}
-
-header.scrolled {
-    background-color: black;
-    z-index: 200; 
-}
-
-
-        header img { width: 200px; height: auto; margin-right: 10px; }
-
-        nav { display: flex; align-items: center; transition: transform 0.3s ease-in-out; }
-
-        nav ul { list-style: none; padding: 0; display: flex; align-items: center; margin: 0; }
-
-        nav li { margin: 5px; position: relative; }
-
-        nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  position: relative;
-  font-family: 'Montserrat'; 
-}
-        nav a:hover { color: white; }
-
-        nav li::before, nav li::after, nav a::before, nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            background-color: white;
-            transition: all 0.3s ease-in-out;
-        }
-
-        nav li::before, nav a::before { left: 0; }
-
-        nav li::after, nav a::after { right: 0; }
-
-        nav li:hover::before, nav a:hover::before, nav li:hover::after, nav a:hover::after {
-            width: 100%;
-            color: #fff;
-        }
-
-        footer {
-            background-color: black;
-            color: #fff;
-            padding: 5px; 
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-family: 'Montserrat';
-        }
-
-        footer hr { border-top: 1px solid white; margin: 10px 0; }
-
-        footer a {
-            display: inline-block;
-            margin: 5px;
-            border: 1px solid white;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        footer a img { width: 37px; height: 37px; transition: transform 0.3s ease-in-out; }
-
-        footer a:hover img { transform: scale(1.2); }
-
-        #starsCanvas {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1; 
-    color: white;
-}
-
-
-
-#bg-container {
-    background-image: url('bg.jpg');
-    position: relative;
-    width: 100%;
-    z-index: 1; 
-    height: 85vh;
-    color: #fff;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: -60px;
-}
-
-
-#bg-container::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: .7;
-    z-index: -1; 
-}
-
-    
-
-       
-        .h1-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    color: white;
-    z-index: 2;
-    opacity: 0;
-    animation: slideUp 1.5s ease-out forwards;
-    font-family: fantasy;
-}
-
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(50%) translateX(-50%);
-        opacity: 0;
+    try {
+        $(document).ready(function () {
+            // Inicializo slideshow
+            $('.cycle-slideshow').cycle({
+                fx: 'fade',  // Animacioni 'fade'
+                speed: 1000,  // Shpejtsia e animacionit në milisekonda (1 sekondë)
+                timeout: 3000  // Koha ndërmjet slidave në milisekonda (3 sekonda)
+            });
+           
+        });
+    } catch (error) {
+        console.error("Ka ndodhur një gabim në shfaqjen e fotografive!", error.message);
+        throw error;
     }
-    100% {
-        transform: translateY(0) translateX(-50%);
-        opacity: 1;
-    }
-}
-
-
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #backToTopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    user-select: none;
-    cursor: grab;
-    transition: all 0.3s;
-    z-index: 4; 
-}
-    
-#backToTopButton:hover span {
-    animation: spin 1.5s linear infinite;
-    transform-origin: center;
-    display: inline-block;
-}
-   
-    #termin:hover {
-    box-shadow: 0 0 10px rgb(254, 253, 253);
-    
-}
-
-video {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            object-position: left top;
-        } 
-
-
-  
-        .card-body p {
-    color: black;
-    font-family: 'Montserrat';
-    font-size: 16px;
-    line-height: 1.5;
-    margin-top: 20px;
-}
-
-.cycle-slideshow {
-    display: flex;
-    align-items:stretch;
-}
-
-.card {
-    display: flex;
-    height: 100%;
-}
-
-.image-container {
-    position:relative;
-    margin-bottom: 10px;
-    width: 100%;
-    flex-grow: 1; /* Sigurohu që pjesa e fotografisë të zgjerohet për të mbushur hapësirën e disponueshme */
-}
-
-.card-body {
-    text-align: center;
-    padding: 10px;
-    background-size: cover;
-}
-
-.cycle-slideshow img {
-    width: 100%; /* Sigurohu që të gjitha fotografitë të kenë të njëjtën gjerësi brenda containerit */
-    height: 300px;
-    object-fit: cover; /* Mbushja e plotë e fotove brenda elementit pa deformim */
-}
-
-.card a:hover {
-    text-decoration: underline !important;
-  
-}
-
-
-    </style>
+    </script>
 </head>
 <body>
 
     <header>
-        <img src="ObvP.png" alt="Observatory of Prishtina">
+        <a href="homepage.html">
+            <img src="ObvP.png" alt="Observatory of Prishtina"> 
+        </a>
+        
         <nav class="navbar navbar-expand-lg">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/projekti/Rezervimet.html">Rezervimi</a></li>
-                <li class="nav-item"><a class="nav-link" href="/FINAL/Evente.html">Eventet</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Faktet.html">Fakte</a></li>
-                <li class="nav-item"><a class="nav-link" href="/">Kontakti</a></li>
+                <li class="nav-item"><a class="nav-link" href="#rezervimi">Rezervimi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#eventet">Eventet</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fakte">Fakte</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontakti">Kontakti</a></li>
             </ul>
         </nav>
     </header>
@@ -288,10 +61,10 @@ video {
                             <a id="termin" style="color: white; text-decoration: none; border: 1px solid white; padding: 10px 40px; font-size: 18px; margin-right: 15px; margin-top: 30px;" href="rezervo.html">Rezervo tani!</a>
                         </div>
                     </div>
-                </div> 
-                
-                
+                </div>  
             </div>
+               
+            
             <div class="h1-container">
                 <h1>Ekspoloro universin në zemër të Prishtinës!</h1>
             </div>
@@ -386,24 +159,83 @@ video {
     </div>
 
    
+    <section class="narrow-section" id="mySection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h4 style="color: white; font-family: Montserrat;">A deshironi te beheni pjese e stafit!</h4>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <button id="applyButton" onclick="showJoinStaffForm()" style="color: black; text-decoration: none; border: 1px solid black; padding: 10px 40px; font-size: 18px; margin-top: 30px; font-family: Monteserrat; margin-bottom: 10px;">Kliko ketu!</button>
+                </div>
+                <div class="close-button" id="closeButton">X</div>
+            </div>
+        </div>
+    </section>
     
-  
-    <script>
-        try {
-            $(document).ready(function () {
-             
-                $('.cycle-slideshow').cycle();
-            });
-        } catch (error) {
-            console.error("Ka ndodhur një gabim në shfaqjen e fotografive!", error.message);
-            throw error; 
-        }
-    </script>
+    <section class="fomra" id="joinStaffSection" style="display: none; margin-top: 60px; background-color: rgb(27, 27, 27);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h4 style="color: white; font-family: 'Montserrat'; text-align: center;">Bëhu pjesë e stafit tonë!</h4>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <form id="joinStaffForm" autocomplete="on">
+                        <div class="form-group">
+                            <label for="emri" style="color: #fff; font-family: Montserrat;">Emri:</label>
+                            <input type="text" class="form-control" id="emri" name="emri" pattern="[A-Za-z]+" title="Emri duhet të përmbajë vetëm shkronja." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mbiemri" style="color: #fff; font-family: Montserrat;">Mbiemri:</label>
+                            <input type="text" class="form-control" id="mbiemri" name="mbiemri" pattern="[A-Za-z]+" title="Mbiemri duhet të përmbajë vetëm shkronja."  required>
+                        </div>
     
+                        <div class="form-group">
+                            <label for="telefoni" style="color: #fff; font-family: Montserrat;">Numri i Telefonit:</label>
+                            <input type="tel" class="form-control" id="telefoni" name="telefoni" pattern="^\+383[0-9]{8,}$" required>
+                            <small style="color: #fff;">Numri i telefonit duhet të fillojë me +383</small>
+                        </div>
     
+                        <div class="form-group">
+                            <label for="email" style="color: #fff; font-family: Montserrat;">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" onfocus="removePlaceholder()" required>
+                        </div>
     
+                        <div class="form-group">
+                            <label for="cv" style="color: #fff; font-family: Montserrat;">Ngarko CV:</label>
+                            <input type="file" class="form-control" id="cv" name="cv" accept=".pdf, .doc, .docx">
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="pozita" style="color: #fff; font-family: Montserrat;">Pozita që po aplikoni:</label>
+                            <input list="pozitat" class="form-control" id="pozita" name="pozita" required>
+                            <datalist id="pozitat">
+                                <option value="Mirembajtes i observatorit">
+                                <option value="Ligjerues">
+                                <option value="Koordinator i projekteve">
+                                <option value="Menaxher i financave">
+                                <option value="Vullnetare">
+                                <!-- Shtoni opsionet e tjera sipas nevojës -->
+                            </datalist>
+                        </div>
+    
+                        <!-- Shtimi i tekstit për motivet e aplikimit -->
+                        <div class="form-group">
+                            <label for="motivet" style="color: #fff; font-family: Montserrat;">Motivet e aplikimit:</label>
+                            <textarea class="form-control" id="motivet" name="motivet" rows="3" required></textarea>
+                        </div>
+    
+                        <button type="button" class="btn btn-primary" id="submitJoinStaffForm" onclick="submitForm()" style="margin-bottom: 10px;">Apliko</button>
+                        <div id="closeButton" onclick="hideJoinStaffForm()" >X</div>
+    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
    
-    
+
                     <section style="background-image: url(background.jpg);">
                     <table style="margin-top: 90px; margin-left: auto; margin-right: auto; align-content: center;">
                         <caption style="caption-side: top; text-align: center; font-size: 22px; font-family: 'Montserrat'; color: white;">Logot e Donatorëve</caption>
@@ -453,176 +285,266 @@ video {
         <a href="https://www.facebook.com/AstronomyClubKosova?mibextid=LQQJ4d" target="_blank"><img src="fb.jpg" alt="facebooklogo"></a>
     </footer>
 
+
+
     <script>
-      
-        
-//funksioni i cili se bashku me canvas krijo nje levizje ne sectionin e pare
-         document.addEventListener("DOMContentLoaded", function () {
-            const canvas = document.getElementById("starsCanvas");
-            const ctx = canvas.getContext("2d");
+        function removePlaceholder() {
+    var emailInput = document.getElementById('email');
+    emailInput.placeholder = '';
+}
 
-            canvas.width = document.getElementById("bg-container").offsetWidth;
-            canvas.height = document.getElementById("bg-container").offsetHeight;
+document.addEventListener("DOMContentLoaded", function () {
+    class Star {
+constructor(x, y, radius, speed) {
+this.x = x;
+this.y = y;
+this.radius = radius;
+this.speed = speed || Math.random() * Number.MAX_VALUE; // Nëse nuk jepet vlera, përdor MAX_VALUE
+}
+}
 
-            const stars = [];
 
-            function createStar() {
-                return {
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 3,
-                    speed: Math.random() * 1,
-                };
-            }
 
-            function drawStars() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = "white";
+const canvas = document.getElementById("starsCanvas");
+const ctx = canvas.getContext("2d");
 
-                for (let i = 0; i < stars.length; i++) {
-                    const star = stars[i];
-                    ctx.beginPath();
-                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
+canvas.width = document.getElementById("bg-container").offsetWidth;
+canvas.height = document.getElementById("bg-container").offsetHeight;
 
-            function updateStars() {
-                for (let i = 0; i < stars.length; i++) {
-                    const star = stars[i];
-                    star.x += star.speed;
-                    if (star.x > canvas.width) {
-                        star.x = 0;
-                    }
-                }
-            }
+const stars = [];
 
-            function initializeStars() {
-                for (let i = 0; i < 100; i++) {
-                    stars.push(createStar());
-                }
-            }
+function createStar() {
+return new Star(
+    Math.random() * canvas.width,
+    Math.random() * canvas.height,
+    Math.random() * 3,
+    Math.random() * 1
+);
+}
 
-            function animateStars() {
-                drawStars();
-                updateStars();
-                requestAnimationFrame(animateStars);
-            }
+function drawStars() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "white";
 
-            initializeStars();
-            animateStars();
+for (let i = 0; i < stars.length; i++) {
+    const star = stars[i];
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fill();
+}
+}
 
-            window.addEventListener("resize", function () {
-                canvas.width = document.getElementById("bg-container").offsetWidth;
-                canvas.height = document.getElementById("bg-container").offsetHeight;
-                initializeStars();
-            });
-        });
+function updateStars() {
+for (let i = 0; i < stars.length; i++) {
+    const star = stars[i];
+    star.x += star.speed;
+    if (star.x > canvas.width) {
+        star.x = 0;
+    }
+}
+}
+
+function initializeStars() {
+for (let i = 0; i < 100; i++) {
+    stars.push(createStar());
+}
+}
+
+function animateStars() {
+drawStars();
+updateStars();
+requestAnimationFrame(animateStars);
+}
+
+initializeStars();
+animateStars();
+
+window.addEventListener("resize", function () {
+canvas.width = document.getElementById("bg-container").offsetWidth;
+canvas.height = document.getElementById("bg-container").offsetHeight;
+initializeStars();
+});
+});
+
 //funksioni qe data te jete updated kurdo qe e shikojme ta kete daten e sotshme 
-        var today = new Date();
-        var formattedDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        document.getElementById('dateDisplay').innerText = 'Data sot: ' + formattedDate;
+var today = new Date();
+var formattedDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+document.getElementById('dateDisplay').innerText = 'Data sot: ' + formattedDate;
 
-        // funksioni per mi shku background color headerit 
+// funksioni per mi shku background color headerit 
 
-        document.addEventListener("DOMContentLoaded", function() {
-            var header = document.querySelector('header');
+document.addEventListener("DOMContentLoaded", function() {
+    var header = document.querySelector('header');
 
-            function toggleHeaderBackground() {
-                header.classList.toggle('scrolled', window.scrollY > 50);
-            }
-
-            window.addEventListener('scroll', toggleHeaderBackground);
-        });
-
-
-       
-        //funksioni per animacion te backtotop buttonit
-        document.addEventListener("DOMContentLoaded", function () {
-    var backToTopButton = document.getElementById('backToTopButton');
-
-    function toggleBackToTopButton() {
-        backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+    function toggleHeaderBackground() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
     }
 
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.addEventListener('scroll', toggleHeaderBackground);
+});
 
-    function animateBackToTopButton() {
-        $('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce'); // Përshembull, përdorimi i animacionit "bounce"
-    }
 
-    window.addEventListener('scroll', function () {
-        toggleBackToTopButton();
 
-        if (window.scrollY > 300) {
-            animateBackToTopButton();
-        }
-    });
+//funksioni per animacion te backtotop buttonit
+document.addEventListener("DOMContentLoaded", function () {
+var backToTopButton = document.getElementById('backToTopButton');
 
-    backToTopButton.addEventListener('click', scrollToTop);
+function toggleBackToTopButton() {
+backToTopButton.classList.toggle('d-none', window.scrollY <= 300);
+}
+
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function animateBackToTopButton() {
+$('#backToTopButton').stop(true, true).fadeTo(200, 0.5).fadeTo(200, 1).addClass('animated bounce'); // Përshembull, përdorimi i animacionit "bounce"
+}
+
+window.addEventListener('scroll', function () {
+toggleBackToTopButton();
+
+if (window.scrollY > 300) {
+    animateBackToTopButton();
+}
+});
+
+backToTopButton.addEventListener('click', scrollToTop);
 });
 
 
 
 
 
-        // funksioni per drag n drop 
-        var button = document.getElementById('backToTopButton');
-    var offsetX, offsetY;
+// funksioni per drag n drop 
+var button = document.getElementById('backToTopButton');
+var offsetX, offsetY;
 
-    button.addEventListener("dragstart", function (event) {
-        event.dataTransfer.setData("text/plain", null);
-        offsetX = event.clientX - button.getBoundingClientRect().left;
-        offsetY = event.clientY - button.getBoundingClientRect().top;
-    });
+button.addEventListener("dragstart", function (event) {
+event.dataTransfer.setData("text/plain", null);
+offsetX = event.clientX - button.getBoundingClientRect().left;
+offsetY = event.clientY - button.getBoundingClientRect().top;
+});
 
-    document.addEventListener("dragover", function (event) {
-        event.preventDefault();
+document.addEventListener("dragover", function (event) {
+event.preventDefault();
 
-        if (offsetX && offsetY) {
-            var x = event.clientX - offsetX;
-            var y = event.clientY - offsetY;
+if (offsetX && offsetY) {
+    var x = event.clientX - offsetX;
+    var y = event.clientY - offsetY;
 
-            button.style.transform = "translate(" + x + "px, " + y + "px)";
-        }
-    });
+    button.style.transform = "translate(" + x + "px, " + y + "px)";
+}
+});
 
-    document.addEventListener("drop", function (event) {
-        event.preventDefault();
+document.addEventListener("drop", function (event) {
+event.preventDefault();
 
-        if (offsetX && offsetY) {
-            button.style.transform = "translate(0px, 0px)";
-            offsetX = offsetY = null;
-        }
-    });
+if (offsetX && offsetY) {
+    button.style.transform = "translate(0px, 0px)";
+    offsetX = offsetY = null;
+}
+});
 
 //callback function
+
+try {
 document.addEventListener("DOMContentLoaded", function () {
-    // ... Kodi ekzistues ...
+// ... Kodi ekzistues ...
 
-    // Shto funksionin e ri për të trajtuar klikimin e butonit "backToTopButton"
-    function handleBackToTopButtonClick() {
-        alert("Ky buton ju dërgon lart në faqen e sipërme.");
-        // Mund të shtosh logjikën tuaj për të kthyer lart faqen këtu
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+// Shto funksionin e ri për të trajtuar klikimin e butonit "backToTopButton"
+function handleBackToTopButtonClick() {
+alert("Ky buton ju dërgon lart në faqen e sipërme.");
+// Mund të shtosh logjikën tuaj për të kthyer lart faqen këtu
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-    // Gjej elementin e butonit
-    var backToTopButton = document.getElementById('backToTopButton');
+// Gjej elementin e butonit
+var backToTopButton = document.getElementById('backToTopButton');
 
-    // Regjistro ngjarjen e klikimit dhe lidh funksionin e krijuar më parë
-    backToTopButton.addEventListener('click', handleBackToTopButtonClick);
+// Regjistro ngjarjen e klikimit dhe lidh funksionin e krijuar më parë
+backToTopButton.addEventListener('click', handleBackToTopButtonClick);
 
-   
+
+});
+}
+catch (error) {
+    console.error("Ka ndodhur një error ne funksionimin e kodit tuaj!", error.message);
+    throw error;
+}
+
+
+// hide the section 
+$(document).ready(function () {
+$("#closeButton").click(function () {
+    $(this).closest(".narrow-section").hide();
+});
 });
 
+//forma 
+function showJoinStaffForm() {
+document.getElementById('mySection').style.display = 'none';
+document.getElementById('joinStaffSection').style.display = 'block';
+}
+
+function hideJoinStaffForm() {
+document.getElementById('joinStaffSection').style.display = 'none';
+}
+
+function submitForm() {
+if (validateForm()) {
+alert("Aplikimi juaj u krye me sukses! Shumë shpejt do iu kontaktoj dikush nga stafi yne!");
+// Mund të shtoni kodin për kontaktin më tej në këtë funksion sipas nevojës.
+} else {
+alert("Aplikimi nuk është i vlefshëm. Ju lutem plotësoni të gjitha fushat e detyrueshme!");
+}
+clearForm();
+}
+
+function clearForm() {
+// Reset the form using the form's reset method
+document.getElementById('joinStaffForm').reset();
+}
+
+
+//validimi i formes
+function validateForm() {
+var emri = document.getElementById('emri').value;
+var mbiemri = document.getElementById('mbiemri').value;
+var telefoni = document.getElementById('telefoni').value;
+var email = document.getElementById('email').value;
+var cv = document.getElementById('cv').value;
+var pozita = document.getElementById('pozita').value;
+var motivet = document.getElementById('motivet').value;
+
+// Logjika për validimin e emrit dhe mbiemrit
+var regexShkronja = /^[A-Za-z]+$/;
+if (!emri.match(regexShkronja) || !mbiemri.match(regexShkronja)) {
+alert("Emri dhe mbiemri duhet të përmbajnë vetëm shkronja.");
+return false;
+}
+
+// Logjika për validimin e email-it
+if (email.indexOf('@') === -1) {
+alert("Email-i duhet të përmbajë simbolin '@'.");
+return false;
+}
+
+// Logjika për validimin e mbushurisë së të gjitha fushave
+if (emri === "" || mbiemri === "" || telefoni === "" || email === "" || cv === "" || pozita === "" || motivet === "") {
+alert("Të gjitha fushat duhet të plotësohen.");
+return false;
+}
+
+
+return true; 
+}
+
+
+
+
+
     </script>
-
-
-
-
 <!-- Include Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 
