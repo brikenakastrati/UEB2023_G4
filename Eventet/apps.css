@@ -1,0 +1,344 @@
+
+
+* {
+  max-width: 100%;
+  color: rgba(255, 255, 255, 0.886);
+ 
+}
+#myForm{
+  background-color: #000;
+  color: white;
+  background-attachment: fixed;
+}
+
+.highlight {
+  background-color: rgba(25, 47, 87, 0.592);
+}
+
+abbr {
+  background-color: rgba(25, 47, 87, 0.225);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.886);
+}
+
+.card dd {
+  font-style: italic;
+  border-style: none;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  background-color: black;
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.Text {
+  font-size: 20px;
+  flex: 1;
+  max-width: calc(50% - 10px);
+  margin-left: 60px;
+}
+
+.Image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
+}
+
+.Image img {
+  max-width: 80%;
+  height: 80%;
+  background-size: cover;
+}
+
+.container h2 {
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.container::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px solid white;
+  margin-left: 10px;
+}
+
+#p-container {
+  background-image: url('obs4.jpg');
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -60px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-attachment: fixed;
+}
+
+#p-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: .7;
+  z-index: -1;
+}
+
+.center-text h1 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 100px;
+  font-weight: bold; 
+  font-style: italic;
+  text-wrap: none
+}
+
+#p-container .center-text h1:hover {
+  font-size: 45px; 
+  background-image: radial-gradient(rgb(107, 136, 222), rgb(34, 34, 97));
+  transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out;
+  color: transparent; 
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mySlides {
+  display: none;
+  animation: fadeEffect 5s;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 400px;
+}
+
+/* Animacioni i faditjes */
+@keyframes fadeEffect {
+  from {
+    opacity: .2
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.list1,
+.list2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.563);
+}
+
+.listat {
+  display: flex;
+  background-color: black;
+}
+
+
+.box1,
+.box2 {
+  opacity: 0;
+  width: 40vw;
+  height: 40vh;
+  flex: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
+  background-image: url('yjet.jpg');
+  background-origin: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-image-slice: 1;
+}
+
+.box1 h2,
+.box2 h2,
+.box1 dl,
+.box2 dl {
+  position: relative;
+  padding-left: 20px;
+}
+
+
+.box1 h2::after,
+.box2 h2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: calc(100% - 40px);
+  bottom: -10px;
+  left: 20px;
+  border-bottom: 0.5px solid white;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 129px;
+  transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+  fill: rgba(25, 47, 87, 0.592);
+}
+
+
+#learnMoreButton, #showForm1{
+  border: 2px solid rgba(25, 47, 87, 0.592);
+  border-radius: 8px;
+  background-color: black; 
+  color: white; 
+  margin-bottom: 10px;
+}
+
+#learnMoreButton, #showForm1{
+  outline-style: dashed;
+  outline-width: 2px;
+  outline-color: rgba(25, 47, 87, 0.592);
+  outline-offset: 3px;
+  transition: outline-color 0.5s ease-in-out;
+}
+
+#learnMoreButton:hover,#showForm1:hover,
+#learnMoreButton:focus, #showForm1:focus {
+  outline-color: rgba(25, 47, 87, 1); 
+}
+#showForm1 {
+  margin-left: 20px;
+}
+.Text ul{
+  list-style-type: circle;
+}
+.blue-bullet li{
+  list-style-type: none;
+}
+
+.custom-fieldset {
+  border: 2px solid rgba(25, 47, 87, 0.592);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: black; 
+  color: white; 
+}
+
+#rezultati,
+#learnMoreContainer {
+  display: inline-block;
+  vertical-align: top; /* Align elements to the top */
+  margin-left: 10px; /* Adjust margin as needed */
+}
+
+#myForm, #nameSurnameForm {
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow */
+  background: 
+       linear-gradient(130deg, #1d1d1d 0%, #000 50%); /* Right to left gradient */
+       display: flex;
+       flex-wrap: wrap; /* Allow wrapping if the options exceed the width */
+       justify-content: center; /* Center-align the options */
+       align-items: center; 
+     }
+
+
+input[type='submit'] {
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: rgba(11, 60, 151, 0.592);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='submit']:focus,
+input[type='email']:focus,
+#myButtoni:focus,
+#occupation:focus, #age:focus {
+  outline: none;
+  border-color: rgba(11, 60, 151, 0.8);
+}
+
+input[type='text']:hover,
+input[type='submit']:hover, 
+input[type='email']:hover,
+#myButtoni:hover,
+#occupation:hover, #age:hover{
+  outline: none;
+  border-color: rgba(11, 60, 151, 0.8);
+}
+
+input[type='text'],
+input[type='submit'],
+input[type='email'], 
+#myButtoni,
+#occupation,
+#age{
+  padding: 10px;
+  margin-top: 10px;
+  background-color: black; 
+  color: white; 
+  border: 2px solid rgba(25, 47, 87, 0.592);
+  border-radius: 4px;
+  font-size: 16px;
+  background: 
+       linear-gradient(15deg,  #1d1d1d 0% 0%, #000 50%); /* Right to left gradient */
+}
+
+#nameSurnameForm {
+  display: none; /* Initially hide all form containers */
+}
