@@ -80,7 +80,7 @@ body, html {
 }
 
 #p-container {
-  background-image: url('obs4.jpg');
+  background-image: url('images/obs4.jpg');
   position: relative;
   width: 100%;
   z-index: 1;
@@ -173,7 +173,7 @@ body, html {
 
 .box1,
 .box2 {
-  opacity: 0;
+  opacity: 1;
   width: 40vw;
   height: 40vh;
   flex: 1;
@@ -183,7 +183,7 @@ body, html {
   overflow: hidden;
   flex-direction: column;
   position: relative;
-  background-image: url('yjet.jpg');
+  background-image: url('images/yjet.jpg');
   background-origin: border-box;
   background-size: cover;
   background-repeat: no-repeat;

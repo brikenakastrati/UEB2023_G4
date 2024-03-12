@@ -1,6 +1,6 @@
 .parallax {
 
-    background-image: url("fillimi.jpg");
+    background-image: url("img/fillimi.jpg");
 
 
     min-height: 500px;
@@ -13,14 +13,11 @@
 }
 
 .vazhdimi {
-    background-image: url("vazhdimi.jpg");
-
-
-
+    background-image: url("img/vazhdimi.jpg");
 }
 
 .nebula {
-    background-image: url("nebulafinal.jpg");
+    background-image: url("img/nebulafinal.jpg");
     background-size: cover;
     background-position: center;
     min-height: 500px;
@@ -33,7 +30,7 @@
 }
 
 .fazat {
-    background-image: url("fazatfinal.jpg");
+    background-image: url("img/fazatfinal.jpg");
     background-size: cover;
     background-position: center;
 
@@ -73,7 +70,7 @@
 #shimeteor {
     margin: 0;
     overflow: hidden;
-    background: url('shimet.jpg') no-repeat center center fixed;
+    background: url('img/shimet.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 

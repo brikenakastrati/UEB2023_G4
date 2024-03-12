@@ -108,7 +108,7 @@
   
   
   #bg-container {
-      background-image: url('bg.jpg');
+      background-image: url('images/bg.jpg');
       position: relative;
       width: 100%;
       z-index: 1; 

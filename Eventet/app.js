@@ -191,23 +191,3 @@ function toggleForm() {
   }
 }
 
-$(document).ready(function() {
-
-  $(".box1, .box2").css("opacity", 1);
-
-    $(".box1, .box2").hover(function() {
-        $(this).stop().animate({
-            opacity: 0,
-        }, 3000);
-    }, function() {
-        $(this).stop().animate({
-            opacity: 1,
-        }, 3000);
-    });
-
-  $("dl dt, dl dd").hover(function() {
-      $(this).css("color", "#ff6600");
-  }, function() {
-      $(this).css("color", ""); 
-  });
-});
