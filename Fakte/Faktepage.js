@@ -7,7 +7,7 @@ $(document).ready(function () {
         meteor.setAttribute("height", "20");
         meteor.setAttribute("x", Math.random() * window.innerWidth);
         meteor.setAttribute("y", 0);
-        meteor.setAttribute("href", "metplease.png");
+        meteor.setAttribute("href", "img/metplease.png");
         $('#meteors-container').append(meteor);
         animateMeteor(meteor);
     }
@@ -66,7 +66,7 @@ $(document).ready(function () {
         meteorElement.setAttribute("height", "20");
         meteorElement.setAttribute("x", Math.random() * window.innerWidth);
         meteorElement.setAttribute("y", 0);
-        meteorElement.setAttribute("href", "metplease.png");
+        meteorElement.setAttribute("href", "img/metplease.png");
         $('#meteors-container3').append(meteorElement);
         moveMeteor(meteorElement);
     }

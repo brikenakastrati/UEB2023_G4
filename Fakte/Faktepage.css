@@ -12,6 +12,7 @@
 
 }
 
+
 .vazhdimi {
     background-image: url("img/vazhdimi.jpg");
 }
@@ -94,16 +95,20 @@
 header {
     background-color: transparent;
     color: #fff;
-    padding: 5px;
+    margin: 0 auto; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    width: 100%;
     z-index: 2;
     top: 0;
+    left: 0; 
+    right: 0; 
     transition: background-color 0.3s ease-in-out;
+    width: 100%; 
+    max-width: 1200px; 
 }
+
 
 header.scrolled {
     background-color: black;
