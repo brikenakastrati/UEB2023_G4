@@ -3,9 +3,7 @@
 
 ## Rreth Projektit
 Projekt semestral i punuar nga studentët e vitit të dytë në Universitetin e Prishtinës "Hasan Prishtina".
-
-Fakuleteti i Inxhinierisë Elektrike dhe Kompjuterike - FIEK
-
+Fakuleteti i Inxhinierisë Elektrike dhe Kompjuterike - FIEK    
 Departament: Kompjuterikë
 
 ## Ideja Projektit
