@@ -1,5 +1,4 @@
-## Projekti UEB I
-### Observatori i Prishtinës
+## Projekti UEB I - Observatori i Prishtinës
 
 
 ## Rreth Projektit
@@ -19,8 +18,8 @@ Kjo është një faqe interneti e krijuar për të ofruar një mënyrë më të 
 - jQuery
 
 ## Contributors
-[Brikena Katrati](https://github.com/brikenakastrati)
-[Elonë Krasniqi](https://github.com/elonekrasniqi)
-[Dea Llapatinca](https://github.com/ll-dea)
-[Erald Keka](https://github.com/Aldialdiqw)
-[Avdi Shabani](https://github.com/AvdiShabani)
+* [Brikena Katrati](https://github.com/brikenakastrati)
+* [Elonë Krasniqi](https://github.com/elonekrasniqi)
+* [Dea Llapatinca](https://github.com/ll-dea)
+* [Erald Keka](https://github.com/Aldialdiqw)
+* [Avdi Shabani](https://github.com/AvdiShabani)
