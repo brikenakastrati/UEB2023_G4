@@ -61,8 +61,8 @@ body, html {
 }
 
 .Image img {
-  max-width: 80%;
-  height: 80%;
+  max-width: 60%;
+  height: 60%;
   background-size: cover;
 }
 
@@ -125,33 +125,6 @@ body, html {
   -webkit-background-clip: text;
   background-clip: text;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.mySlides {
-  display: none;
-  animation: fadeEffect 5s;
-}
-
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-.mySlides img {
-  width: 100%;
-  height: 400px;
-}
-
-/* Animacioni i faditjes */
-@keyframes fadeEffect {
-  from {
-    opacity: .2
-  }
-
-  to {
-    opacity: 1
-  }
 }
 
 .list1,
@@ -232,16 +205,18 @@ body, html {
   fill: rgba(25, 47, 87, 0.592);
 }
 
-
-#learnMoreButton, #showForm1{
+#showForm1 {
   border: 2px solid rgba(25, 47, 87, 0.592);
   border-radius: 8px;
-  background-color: black; 
-  color: white; 
+  background-color: black;
+  color: white;
   margin-bottom: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 16px; 
 }
 
-#learnMoreButton, #showForm1{
+#showForm1 {
   outline-style: dashed;
   outline-width: 2px;
   outline-color: rgba(25, 47, 87, 0.592);
@@ -249,12 +224,15 @@ body, html {
   transition: outline-color 0.5s ease-in-out;
 }
 
-#learnMoreButton:hover,#showForm1:hover,
-#learnMoreButton:focus, #showForm1:focus {
-  outline-color: rgba(25, 47, 87, 1); 
+#showForm1:hover,
+#showForm1:focus {
+  outline-color: rgba(25, 47, 87, 1);
 }
+
 #showForm1 {
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .Text ul{
   list-style-type: circle;
@@ -274,20 +252,20 @@ body, html {
 #rezultati,
 #learnMoreContainer {
   display: inline-block;
-  vertical-align: top; /* Align elements to the top */
-  margin-left: 10px; /* Adjust margin as needed */
+  vertical-align: top; 
+  margin-left: 10px; 
 }
 
 #myForm, #nameSurnameForm {
   max-width: 500px;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); 
   background: 
-       linear-gradient(130deg, #1d1d1d 0%, #000 50%); /* Right to left gradient */
+       linear-gradient(130deg, #1d1d1d 0%, #000 50%); 
        display: flex;
-       flex-wrap: wrap; /* Allow wrapping if the options exceed the width */
-       justify-content: center; /* Center-align the options */
+       flex-wrap: wrap; 
+       justify-content: center; 
        align-items: center; 
      }
 
@@ -307,7 +285,7 @@ input[type='submit'] {
 input[type='text']:focus,
 input[type='submit']:focus,
 input[type='email']:focus,
-#myButtoni:focus,
+#myButtoni:focus, #buttoni2,
 #occupation:focus, #age:focus {
   outline: none;
   border-color: rgba(11, 60, 151, 0.8);
@@ -316,7 +294,7 @@ input[type='email']:focus,
 input[type='text']:hover,
 input[type='submit']:hover, 
 input[type='email']:hover,
-#myButtoni:hover,
+#myButtoni:hover, #buttoni2,
 #occupation:hover, #age:hover{
   outline: none;
   border-color: rgba(11, 60, 151, 0.8);
@@ -325,7 +303,7 @@ input[type='email']:hover,
 input[type='text'],
 input[type='submit'],
 input[type='email'], 
-#myButtoni,
+#myButtoni, #buttoni2,
 #occupation,
 #age{
   padding: 10px;
@@ -336,9 +314,9 @@ input[type='email'],
   border-radius: 4px;
   font-size: 16px;
   background: 
-       linear-gradient(15deg,  #1d1d1d 0% 0%, #000 50%); /* Right to left gradient */
+       linear-gradient(15deg,  #1d1d1d 0% 0%, #000 50%); 
 }
 
 #nameSurnameForm {
-  display: none; /* Initially hide all form containers */
+  display: none;
 }
